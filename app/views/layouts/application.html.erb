@@ -8,7 +8,13 @@
 </head>
 <body>
 
-<%= yield %>
+  <div id="wrap">    
+    <%= render "shared/top_navigation" %>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </div>
+  <%= render partial: "shared/footer" %>
 
 </body>
 </html>

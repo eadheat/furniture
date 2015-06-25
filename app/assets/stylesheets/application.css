@@ -17,5 +17,6 @@
  *= require slick-theme
  *= require fonts
  *= require variables
+ *= require bootstrap_custom
  *= require global
  */
