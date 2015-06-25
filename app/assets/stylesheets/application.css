@@ -13,6 +13,8 @@
  *= require_self
  *= require bootstrap.min
  *= require font-awesome/css/font-awesome.min
+ *= require slick
+ *= require slick-theme
  *= require fonts
  *= require variables
  *= require global
