@@ -11,6 +11,7 @@ html, body {
 
   #top-navigation {
     background: $navigation-color;
+    box-shadow: -1px 3px 7px $shadow-color;
 
     .container {
       padding-top: 0;
@@ -27,4 +28,37 @@ footer {
   min-height: 10%;
   border-top: 1px solid $hr-color;
   padding: 20px 0;
+}
+
+.gray-border {
+  border: 1px solid $border-color;
+}
+
+img {
+  width: 100%;
+}
+
+ul#menu-list {
+  border: 0;
+  list-style-type: none;
+  padding: 0;
+  background-color: $menu-background-color;
+
+  li {
+    border-bottom: 1px solid $border-color;
+    padding: 5px 15px;
+    color: inherit;
+  }
+}
+
+#item-list {
+  margin-top: -15px;
+  
+  .item:hover, .item.focus {
+    border: 1px solid $hover-border-color;
+  }
+
+  .item img {
+    padding-top: 15px;
+  }
 }
