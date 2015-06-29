@@ -2,6 +2,7 @@
 
 html, body {
   height: 100%;
+  font-size: 12px;
 }
 
 #wrap {
@@ -69,4 +70,8 @@ ul#menu-list {
   .item img {
     padding-top: 15px;
   }
+}
+
+table tr#first-pay-list {
+  background: gray;
 }

@@ -10,3 +10,11 @@ nav.navbar {
     padding-right: 0;
   }
 }
+
+input, select, textarea, button {
+  border-radius: 0 !important;
+}
+
+.table tbody tr td, .table tbody tr th, .table thead tr th {
+    border: none;
+}

@@ -1,0 +1,30 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>DATE</th>
+      <th>Pay list</th>
+      <th>Price (THB)</th>
+      <th>Add</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="first-pay-list">
+      <td><input class="pay-date form-control" type="text" value="CHECK-IN 11.10.2014" name="date" /></td>
+      <td><%= text_field_tag "description", nil, class: "form-control" %></td>
+      <td><%= text_field_tag "price", nil, class: "form-control" %></td>
+      <td><%= button_tag "+ Add", class: "btn btn-primary" %></td>
+    </tr>
+    <tr>
+      <td>Jun 24</td>
+      <td>Breakfast</td>
+      <td>80</td>
+      <td>Edit | Delete</td>
+    </tr>
+    <tr>
+      <td>Jun 24</td>
+      <td>Lunch</td>
+      <td>180</td>
+      <td>Edit | Delete</td>
+    </tr>
+  </tbody>
+</table>

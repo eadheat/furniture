@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-    resource :home
+    resources  :homes
+    resources :expenses
 
   # Example resource route with options:
   #   resources :products do
