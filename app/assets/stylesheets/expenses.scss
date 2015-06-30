@@ -1,4 +1,10 @@
+@import "variables";
+
 table td#payment-check-box {
   vertical-align: middle;
   text-align: center;
+}
+
+.remove-expense {
+  color: $red;
 }

@@ -5,7 +5,7 @@
       <th>Detail</th>
       <th>Price (THB)</th>
       <th>Pay by Credit</th>
-      <th>Add</th>
+      <th colspan="2">Add</th>
     </tr>
   </thead>
   <tbody>
@@ -22,7 +22,7 @@
       <td id="payment-check-box">
         <%= check_box_tag "expense_credit", nil %>
       </td>
-      <td>
+      <td colspan="2">
         <%= button_tag "+ Add", id: "insert-expense", class: "btn btn-primary" %>
       </td>
     </tr>
