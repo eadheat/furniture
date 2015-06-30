@@ -14,12 +14,7 @@
     <%= render "shared/top_navigation" %>
     <div class="container">
       <div class="row">
-        <div class="col-xs-4 col-sm-2">
-          <%= render partial: "shared/menu_list" %>
-        </div>
-        <div class="col-xs-8 col-sm-10">
-          <%= yield %>
-        </div>
+        <%= yield %>
       </div>      
     </div>
   </div>
