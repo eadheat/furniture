@@ -2,16 +2,30 @@ require "rails_helper"
 
 RSpec.describe ExpensesController, :type => :controller do
 
-  describe "create" do
-    it "create new expense" do      
-      sign_in_as(refinery_admin) do
+  describe "index" do
+    it "render index page" do  
+      user = FactoryGirl.create(:user)    
+      sign_in_as(user) do
         get :index, locale: "en"
 
-        expect(assigns[:nomenclature_classes]).to eq([
-          ["-select-", ""],
-          ["#{nomenclature_class_1.code} #{nomenclature_class_1.legend_en}", nomenclature_class_1.id],
-          ["#{nomenclature_class_2.code} #{nomenclature_class_2.legend_en}", nomenclature_class_2.id]
-        ])
+        expect(response).to render_template("index")
+      end
+    end
+  end
+
+  describe "create" do
+    it "create new expense" do
+      user = FactoryGirl.create(:user)    
+      sign_in_as(user) do
+        expect {
+          post :create, locale: "en",
+          expense: {
+            date: Time.now,
+            detail: "Test",
+            amount: 80,
+            credit: ""
+          }
+        }.to change(Expense, :count).by(1)
       end
     end
   end

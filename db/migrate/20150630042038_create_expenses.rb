@@ -4,11 +4,10 @@ class CreateExpenses < ActiveRecord::Migration
       t.datetime  :date
       t.text      :detail
       t.decimal   :amount
+      t.boolean   :credit,            default: false
       t.integer   :user_id
-      t.integer   :payment_id
       t.timestamps
     end
     add_index :expenses, :user_id
-    add_index :expenses, :payment_id
   end
 end

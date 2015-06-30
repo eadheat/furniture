@@ -3,5 +3,3 @@ user = User.create(
   password: "asdqwe123", 
   password_confirmation: "asdqwe123"
 )
-
-require Rails.root.join(*%w(db seeds payment))

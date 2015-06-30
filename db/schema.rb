@@ -20,20 +20,13 @@ ActiveRecord::Schema.define(version: 20150630052032) do
     t.datetime "date"
     t.text     "detail"
     t.decimal  "amount"
+    t.boolean  "credit",     default: false
     t.integer  "user_id"
-    t.integer  "payment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "expenses", ["payment_id"], name: "index_expenses_on_payment_id", using: :btree
   add_index "expenses", ["user_id"], name: "index_expenses_on_user_id", using: :btree
-
-  create_table "payments", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

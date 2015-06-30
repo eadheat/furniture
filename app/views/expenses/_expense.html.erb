@@ -1,0 +1,31 @@
+<table id="pay-list" class="table">
+  <thead>
+    <tr>
+      <th>DATE</th>
+      <th>Detail</th>
+      <th>Price (THB)</th>
+      <th>Pay by Credit</th>
+      <th>Add</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="expense-form">
+      <td>
+        <input class="pay-date form-control" type="text" value="<%= Time.now.strftime('%d.%m.%Y') %>" name="expense_date" />
+      </td>
+      <td>
+        <%= text_field_tag "expense_detail", nil, class: "form-control" %>
+      </td>
+      <td>
+        <%= text_field_tag "expense_amount", nil, class: "form-control" %>
+      </td>
+      <td id="payment-check-box">
+        <%= check_box_tag "expense_credit", nil %>
+      </td>
+      <td>
+        <%= button_tag "+ Add", id: "insert-expense", class: "btn btn-primary" %>
+      </td>
+    </tr>
+    <%= render partial: "expense_list", collection: @expenses, as: :expense %>
+  </tbody>
+</table>

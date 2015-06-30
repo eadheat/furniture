@@ -1,24 +1,42 @@
 Expenses = {
   submitExpenseForm: function(){
-    alert(111);
     var tr_parent = $(this).parents("tr");
-    var expense_date = $(tr_parent).find("name[expense_date]").val();
-    var expense_detail = $(tr_parent).find("name[expense_detail]").val();
-    var expense_amount = $(tr_parent).find("name[expense_amount]").val();
-    var expense_payment_id = $(tr_parent).find("name[expense_payment_id]").val();
+    var expense_date = $(tr_parent).find("input[name='expense_date']").val();
+    var expense_detail = $(tr_parent).find("input[name='expense_detail']").val();
+    var expense_amount = $(tr_parent).find("input[name='expense_amount']").val();
+
+    var expense_credit = "";
+    var credit = $(tr_parent).find("input[name='expense_credit']");
+    if ($(credit).is(":checked")){
+      expense_credit = true;
+    }
+    
 
     $.ajax({
       beforeSend: function(xhr) {
         xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
       },
-      dataType: 'html',
+      dataType: 'json',
       success: function(result) {
+        if (result.success){
+          var first_row = $("table#pay-list").find("tr#expense-form");
+          var row = "<tr>\
+            <td>"+result.date+"</td>\
+            <td>"+result.detail+"</td>\
+            <td>"+result.amount+"</td>\
+            <td>"+result.credit+"</td>\
+            <td>Edit | Delete</td>\
+          </tr>";
+          $(row).insertAfter($(first_row));
+        }else{
+          alert(result.error);
+        }
       },
       data: {
         "expense[date]": expense_date,
         "expense[detail]": expense_detail,
         "expense[amount]": expense_amount,
-        "expense[payment_id]": expense_payment_id
+        "expense[credit]": expense_credit
       },
       timeout: 10000,
       type: "post",
