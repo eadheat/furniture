@@ -11,7 +11,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to "Brand", homes_path, class: "navbar-brand" %>
+          <%= link_to current_user.email, homes_path, class: "navbar-brand" if user_signed_in? %>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
