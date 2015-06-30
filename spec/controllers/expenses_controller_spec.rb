@@ -26,6 +26,21 @@ RSpec.describe ExpensesController, :type => :controller do
             credit: ""
           }
         }.to change(Expense, :count).by(1)
+
+        expect(user.expenses.count).to eq(1)
+      end
+    end
+  end
+
+  describe "delete" do
+    it "delete expense" do
+      user = FactoryGirl.create(:user)    
+      expense = FactoryGirl.create(:expense, user: user)
+
+      sign_in_as(user) do
+        expect {
+          delete :destroy, id: expense.id, locale: "en"
+        }.to change(Expense, :count).by(-1)
       end
     end
   end

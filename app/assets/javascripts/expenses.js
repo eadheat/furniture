@@ -43,8 +43,28 @@ Expenses = {
       url: "/expenses"
     });
   },
+  removeExpense: function(){
+    var obj = $(this);
+    var expense_id = $(this).attr("id");    
+    if (!confirm("Are you sure?")){
+      return false;
+    }
+    $.ajax({
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+      },
+      dataType: 'json',
+      success: function(result) {
+        $(obj).parents("tr").remove();
+      },
+      timeout: 10000,
+      type: "delete",
+      url: "/expenses/"+expense_id
+    });
+  },
   init: function(){
     $(document).on("click", "button#insert-expense", Expenses.submitExpenseForm);
+    $(document).on("click", ".remove-expense", Expenses.removeExpense);
   }
 };
 

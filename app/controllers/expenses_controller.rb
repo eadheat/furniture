@@ -2,7 +2,7 @@ class ExpensesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @expenses = Expense.all.order("date desc")
+    @expenses = current_user.expenses.order("date desc, created_at desc")
   end
 
   def create
@@ -12,6 +12,7 @@ class ExpensesController < ApplicationController
     else
       expense.credit = false
     end
+    expense.user = current_user
 
     if expense.save
       render json: {
@@ -24,6 +25,11 @@ class ExpensesController < ApplicationController
     else
       render json: {success: false, error: "#{expense.errors.full_messages.join(', ')}"}
     end
+  end
+
+  def destroy
+    current_user.expenses.find(params[:id]).destroy
+    render json: {success: true}
   end
 
   private

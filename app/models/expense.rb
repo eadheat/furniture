@@ -1,5 +1,5 @@
 class Expense < ActiveRecord::Base
-  belongs_to :payment
+  belongs_to :user
 
   validates :date, presence: true
   validates :detail, presence: true

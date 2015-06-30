@@ -3,5 +3,8 @@
   <td><%= expense.detail %></td>
   <td><%= expense.amount %></td>
   <td><%= expense.credit ? "Credit" : "Cash" %></td>
-  <td>Edit | Delete</td>
+  <td>
+    Edit | 
+    <span class="remove-expense pointer" id="<%= expense.id %>">Delete</span>
+  </td>
 </tr>
