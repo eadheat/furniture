@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-  root to: "home#index"
+  root to: "homes#index"
 end

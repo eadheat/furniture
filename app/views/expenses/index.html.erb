@@ -9,7 +9,7 @@
   </thead>
   <tbody>
     <tr id="first-pay-list">
-      <td><input class="pay-date form-control" type="text" value="CHECK-IN 11.10.2014" name="date" /></td>
+      <td><input class="pay-date form-control" type="text" value="<%= Time.now.strftime('%d.%m.%Y') %>" name="date" /></td>
       <td><%= text_field_tag "description", nil, class: "form-control" %></td>
       <td><%= text_field_tag "price", nil, class: "form-control" %></td>
       <td><%= button_tag "+ Add", class: "btn btn-primary" %></td>
