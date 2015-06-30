@@ -9,12 +9,22 @@
     </tr>
   </thead>
   <tbody>
-    <tr id="first-pay-list">
-      <td><input class="pay-date form-control" type="text" value="<%= Time.now.strftime('%d.%m.%Y') %>" name="date" /></td>
-      <td><%= text_field_tag "description", nil, class: "form-control" %></td>
-      <td><%= text_field_tag "price", nil, class: "form-control" %></td>
-      <td id="payment-check-box"><%= check_box_tag "payemnt", false %></td>
-      <td><%= button_tag "+ Add", class: "btn btn-primary" %></td>
+    <tr id="expense-form">
+      <td>
+        <input class="pay-date form-control" type="text" value="<%= Time.now.strftime('%d.%m.%Y') %>" name="expense_date" />
+      </td>
+      <td>
+        <%= text_field_tag "expense_detail", nil, class: "form-control" %>
+      </td>
+      <td>
+        <%= text_field_tag "expense_amount", nil, class: "form-control" %>
+      </td>
+      <td id="payment-check-box">
+        <%= check_box_tag "expense_payemnt_id", false %>
+      </td>
+      <td>
+        <%= button_tag "+ Add", id: "insert-expense", class: "btn btn-primary" %>
+      </td>
     </tr>
     <tr>
       <td>Jun 24</td>
