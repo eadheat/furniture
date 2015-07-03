@@ -62,9 +62,24 @@ Expenses = {
       url: "/expenses/"+expense_id
     });
   },
+  editExpense: function(){
+    var expense_id = $(this).attr("id"); 
+    var tr_parent = $(this).parents("tr");
+
+    $(tr_parent).find(".expense-text-show").hide();
+    $(tr_parent).find(".expense-value").show();
+  },
+  cancelUpdateExpense: function(){
+    var tr_parent = $(this).parents("tr");
+
+    $(tr_parent).find(".expense-text-show").show();
+    $(tr_parent).find(".expense-value").hide();
+  },
   init: function(){
     $(document).on("click", "button#insert-expense", Expenses.submitExpenseForm);
     $(document).on("click", ".remove-expense", Expenses.removeExpense);
+    $(document).on("click", ".edit-expense", Expenses.editExpense);
+    $(document).on("click", ".cancel-update-expense", Expenses.cancelUpdateExpense);
   }
 };
 

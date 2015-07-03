@@ -1,10 +1,26 @@
 <tr>
-  <td><%= expense.date.strftime("%d %B") %></td>
-  <td><%= expense.detail %></td>
-  <td><%= expense.amount %></td>
-  <td><%= expense.credit ? "Credit" : "Cash" %></td>
-  <td class="text-center">Edit</td>
   <td>
-    <span class="remove-expense pointer" id="<%= expense.id %>"><i class="fa fa-times fa-lg"></i></span>
+    <span class="expense-text-show"><%= expense.date.strftime("%d %B") %></span>
+    <%= text_field_tag "expense_date", expense.date.strftime('%d.%m.%Y'), class: "expense-value" %>
+  </td>
+  <td>
+    <span class="expense-text-show"><%= expense.detail %></span>
+    <%= text_field_tag "expense_detail", expense.detail, class: "expense-value" %>
+  </td>
+  <td>
+    <span class="expense-text-show"><%= expense.amount %></span>
+    <%= text_field_tag "expense_amount", expense.amount, class: "expense-value" %>
+  </td>
+  <td class="text-center">
+    <span class="expense-text-show"><%= expense.credit ? "Credit" : "Cash" %></span>
+    <%= check_box_tag "expense_credit", nil, expense.credit, class: "expense-value" %>
+  </td>
+  <td>
+    <span class="expense-text-show edit-expense pointer" id="<%= expense.id %>">Edit</span>
+    <button class="expense-value update-expense btn btn-default" id="<%= expense.id %>">Save</button>  
+  </td>
+  <td>
+    <span class="remove-expense pointer expense-text-show" id="<%= expense.id %>"><i class="fa fa-times fa-lg"></i></span>
+    <span class="cancel-update-expense expense-value pointer">Cancel</span>
   </td>
 </tr>
