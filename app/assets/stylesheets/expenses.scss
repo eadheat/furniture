@@ -1,7 +1,7 @@
 @import "variables";
 
 table td.payment-check-box {
-  vertical-align: middle;
+  vertical-align: middle !important;
   text-align: center;
 }
 
@@ -11,4 +11,20 @@ table td.payment-check-box {
 
 .expense-value {
   display: none;
+}
+
+.credit {
+  color: $green;
+}
+
+table td.cancel-or-remove-expense {
+  vertical-align: middle !important;
+}
+
+table th.menu-actions {
+  width: 150px;
+}
+
+table td.edit-action, td.delete-action {
+  width: 70px;
 }

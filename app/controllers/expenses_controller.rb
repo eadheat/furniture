@@ -6,13 +6,29 @@ class ExpensesController < ApplicationController
   end
 
   def create
-    expense = Expense.new(expenses_params)
+    @expense = Expense.new(expenses_params)
+    if params[:expense][:credit].present?
+      @expense.credit = true
+    else
+      @expense.credit = false
+    end
+    @expense.user = current_user
+
+    if @expense.save
+      render "create_success", layout: false
+    else
+      render "create_error", layout: false
+    end
+  end
+
+  def update
+    expense = current_user.expenses.find(params[:id])
+    expense.assign_attributes(expenses_params)
     if params[:expense][:credit].present?
       expense.credit = true
     else
       expense.credit = false
     end
-    expense.user = current_user
 
     if expense.save
       render json: {
@@ -20,7 +36,7 @@ class ExpensesController < ApplicationController
         date: expense.date.strftime("%d.%m.%Y"),
         detail: expense.detail,
         amount: expense.amount,
-        credit: expense.credit ? "Credit" : "Cash"
+        credit: expense.credit ? "<span class='credit'>Credit</span>" : "Cash"
       }
     else
       render json: {success: false, error: "#{expense.errors.full_messages.join(', ')}"}
