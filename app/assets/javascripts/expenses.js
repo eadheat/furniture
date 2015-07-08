@@ -1,6 +1,8 @@
 Expenses = {
-  submitExpenseForm: function(){
+  submitExpenseForm: function(event){
     var tr_parent = $(this).parents("tr");
+    $(tr_parent).find("input.required").removeClass("error");
+    
     var expense_date = $(tr_parent).find("input[name='expense_date']").val();
     var expense_detail = $(tr_parent).find("input[name='expense_detail']").val();
     var expense_amount = $(tr_parent).find("input[name='expense_amount']").val();
@@ -20,6 +22,14 @@ Expenses = {
       success: function(result) {
         var first_row = $("table#pay-list").find("tr#expense-form");          
         $(result).insertAfter($(first_row));
+      },
+      error: function(){
+        $(tr_parent).find("input.required").filter(function() {
+          return !this.value;
+        }).addClass("error").delay(1000).queue(function() {
+          $(this).removeClass("error");
+          $(this).dequeue();
+        });
       },
       data: {
         "expense[date]": expense_date,
@@ -59,16 +69,53 @@ Expenses = {
     $(tr_parent).find(".expense-value").show();
   },
   cancelUpdateExpense: function(){
+    var expense_id = $(this).attr("id"); 
     var tr_parent = $(this).parents("tr");
+    $(tr_parent).find("input.required").removeClass("error");
+
+    $.ajax({
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+      },
+      dataType: 'json',
+      success: function(result) {  
+        Expenses.updateExpenseTextDetails(result, tr_parent);
+        Expenses.updateExpenseDetails(result, tr_parent);
+      },
+      error: function(){
+      },
+      timeout: 10000,
+      type: "get",
+      url: "/expenses/"+expense_id+"/expense_details"
+    });
 
     $(tr_parent).find(".expense-text-show").show();
     $(tr_parent).find(".expense-value").hide();
   },
-  updateExpense: function(){
+  updateExpenseDetails: function(result, tr_parent){
+    $(tr_parent).find("input[name='expense_date']").val(result.date);
+    $(tr_parent).find("input[name='expense_detail']").val(result.detail);
+    $(tr_parent).find("input[name='expense_amount']").val(result.amount);
+
+    if (result.is_credit){
+      $(tr_parent).find("input[name='expense_credit']").attr("checked", true);
+    }else{
+      $(tr_parent).find("input[name='expense_credit']").attr("checked", false);
+    }
+  },
+  updateExpenseTextDetails: function(result, tr_parent){
+    $(tr_parent).find("#expense-date").text(result.date);
+    $(tr_parent).find("#expense-detail").text(result.detail);
+    $(tr_parent).find("#expense-amount").text(result.amount);
+    $(tr_parent).find("#expense-credit").html(result.credit);  
+  },
+  updateExpense: function(event){
     var obj = $(this);
     var expense_id = $(this).attr("id"); 
 
     var tr_parent = $(this).parents("tr");
+    $(tr_parent).find("input.required").removeClass("error");
+    
     var expense_date = $(tr_parent).find("input[name='expense_date']").val();
     var expense_detail = $(tr_parent).find("input[name='expense_detail']").val();
     var expense_amount = $(tr_parent).find("input[name='expense_amount']").val();
@@ -84,15 +131,17 @@ Expenses = {
         xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
       },
       dataType: 'json',
-      success: function(result) {
-        if (result.success){
-          $(tr_parent).find("#expense-date").text(result.date);
-          $(tr_parent).find("#expense-detail").text(result.detail);
-          $(tr_parent).find("#expense-amount").text(result.amount);
-          $(tr_parent).find("#expense-credit").html(result.credit);          
-        }
+      success: function(result) {        
+        Expenses.updateExpenseTextDetails(result, tr_parent);
+        Expenses.updateExpenseDetails(result, tr_parent);
+
         $(tr_parent).find(".expense-text-show").show();
         $(tr_parent).find(".expense-value").hide();        
+      },
+      error: function(){
+        $(tr_parent).find("input.required").filter(function() {
+          return !this.value;
+        }).addClass("error");
       },
       data: {
         "expense[date]": expense_date,

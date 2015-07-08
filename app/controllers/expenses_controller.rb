@@ -17,7 +17,7 @@ class ExpensesController < ApplicationController
     if @expense.save
       render "create_success", layout: false
     else
-      render "create_error", layout: false
+      head(:forbidden)
     end
   end
 
@@ -32,14 +32,29 @@ class ExpensesController < ApplicationController
 
     if expense.save
       render json: {
-        success: true, 
-        date: expense.date.strftime("%d.%m.%Y"),
+        date: expense.date.strftime("%d %B"),
         detail: expense.detail,
         amount: expense.amount,
-        credit: expense.credit ? "<span class='credit'>Credit</span>" : "Cash"
+        credit: expense.credit ? "<span class='credit'>Credit</span>" : "Cash",
+        is_credit: expense.credit
       }
     else
-      render json: {success: false, error: "#{expense.errors.full_messages.join(', ')}"}
+      head(:forbidden)
+    end
+  end
+
+  def expense_details
+    expense = current_user.expenses.find(params[:id])
+    if expense.present?
+      render json: {
+        date: expense.date.strftime("%d %B"),
+        detail: expense.detail,
+        amount: expense.amount,
+        credit: expense.credit ? "<span class='credit'>Credit</span>" : "Cash",
+        is_credit: expense.credit
+      }
+    else
+      head(:forbidden)
     end
   end
 

@@ -11,13 +11,13 @@
   <tbody>
     <tr id="expense-form">
       <td>
-        <input class="pay-date form-control" type="text" value="<%= Time.now.strftime('%d.%m.%Y') %>" name="expense_date" />
+        <input class="pay-date form-control required" type="text" value="<%= Time.now.strftime('%d.%m.%Y') %>" name="expense_date" />
       </td>
       <td>
-        <%= text_field_tag "expense_detail", nil, class: "form-control" %>
+        <%= text_field_tag "expense_detail", nil, class: "form-control required" %>
       </td>
       <td>
-        <%= text_field_tag "expense_amount", nil, class: "form-control" %>
+        <%= text_field_tag "expense_amount", nil, class: "form-control required" %>
       </td>
       <td class="payment-check-box">
         <%= check_box_tag "expense_credit", nil %>
