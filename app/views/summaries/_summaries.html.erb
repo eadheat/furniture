@@ -1,0 +1,38 @@
+<div class="clearfix col-sm-8">
+  <br>
+  <div>
+    <div><h5><%= @summaries %></h5></div>
+    <div>
+      <table class="table">
+        <thead>
+          <tr class="bg-light-gray">
+            <th>Summaries for</th>
+            <th>Amonth (THB)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Summary</td>
+            <td><%= summary(current_user) %></td>
+          </tr>
+          <tr>
+            <td>Paid the most per day</td>
+            <td><%= paid_the_most_per_day(current_user) %></td>
+          </tr>
+          <tr>
+            <td>Paid the least per day</td>
+            <td><%= paid_the_least_per_day(current_user) %></td>
+          </tr>
+          <tr>
+            <td>Paid the most per month</td>
+            <td><%= paid_the_most_per_month(current_user) %></td>
+          </tr>
+          <tr>
+            <td>Paid the least per month</td>
+            <td><%= paid_the_least_per_month(current_user) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div><!-- row -->  
+</div>

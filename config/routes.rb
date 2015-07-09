@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       end
     end
     resources :summaries
+    resources :histories
+    resources :averages
 
   # Example resource route with options:
   #   resources :products do

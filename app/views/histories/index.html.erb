@@ -1,0 +1,37 @@
+<%= render partial: "shared/search_box" %>
+
+<div class="col-sm-12">
+  <br>
+  <div>
+    <div><h5>Paid for <%= Time.now.strftime("%B %Y") %></h5></div>
+    <table class="table">
+      <thead>
+        <tr class="bg-light-gray">
+          <th>Date</th>
+          <th>Detail</th>
+          <th>Amount (THB)</th>
+          <th>Pay by</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "date_list", collection: @paid_for_month, as: :expense %>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <div><h5>Paid for <%= Time.now.year %></h5></div>
+    <table class="table">
+      <thead>
+        <tr class="bg-light-gray">
+          <th>Month</th>
+          <th>Amount (THB)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @months.each do |month, amount| %>
+          <%= render partial: "month_list", locals: { month: month, amount: amount } %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

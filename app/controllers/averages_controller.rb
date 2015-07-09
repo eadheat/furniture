@@ -1,4 +1,4 @@
-class SummariesController < ApplicationController
+class AveragesController < ApplicationController
   before_action :authenticate_user!
 
   def index

@@ -1,0 +1,26 @@
+<div class="clearfix col-sm-8">
+  <br>
+  <div>
+    <div><h5><%= @averages %></h5></div>
+    <div>
+      <table class="table">
+        <thead>
+          <tr class="bg-light-gray">
+            <th>Averages for</th>
+            <th>Amonth (THB)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Per day</td>
+            <td><%= average_expense_per_day_for_all(current_user) %></td>
+          </tr>
+          <tr>
+            <td>Per month</td>
+            <td><%= average_expense_per_month_for_all(current_user) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div><!-- row -->
+</div>

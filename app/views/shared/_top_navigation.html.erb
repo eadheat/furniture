@@ -18,7 +18,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><%= link_to "My Expenses", expenses_path if user_signed_in? %></li>
-            <li><%= link_to "Expenses Summary", summaries_path if user_signed_in? %></li>
+            <li><%= link_to "Summary", summaries_path if user_signed_in? %></li>
+            <li><%= link_to "Average", averages_path if user_signed_in? %></li>
+            <li><%= link_to "History", histories_path if user_signed_in? %></li>
             <li><%= link_to "Notes", expenses_path if user_signed_in? %></li>
           </ul>
           <!-- <form class="navbar-form navbar-left" role="search">
