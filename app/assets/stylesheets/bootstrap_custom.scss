@@ -22,3 +22,11 @@ input, select, textarea, button {
 h5 {
   font-weight: 700;
 }
+
+.dropdown ul.dropdown-menu {
+  min-width: 0 !important;
+
+  a {
+    padding: 3px 10px;
+  }
+}
