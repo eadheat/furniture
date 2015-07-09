@@ -25,8 +25,9 @@ module ApplicationHelper
   end
 
   def average_expense_per_month_for_all(current_user)
-    puts days = (Time.now.to_date - current_user.expenses.first.date.to_date).to_i
-    months = days / 30
+    days = (Time.now.to_date - current_user.expenses.first.date.to_date).to_i
+    months = (days / 30).to_i
+
     if months > 0
       return (current_user.expenses.map(&:amount).sum / months).round(2)
     else
