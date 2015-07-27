@@ -8,7 +8,7 @@ class ExpensesController < ApplicationController
   end
 
   def index   
-    @expenses = current_user.expenses.order("date desc, created_at desc")
+    @expenses = current_user.expenses.order("date desc, created_at desc").paginate(:page => params[:page], :per_page => 30)
   end
 
   def create
