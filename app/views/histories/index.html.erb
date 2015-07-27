@@ -6,17 +6,17 @@
     <div><h5>Paid for <%= Time.now.year %></h5></div>
     <table class="table">
       <thead>
-        <tr class="bg-light-gray">
+        <tr class="info">
           <th>Month</th>
           <th>Total Amount (THB)</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <% @months.each do |date, amount| %>
-          <%= render partial: "month_list", locals: { date: date.to_date, amount: amount } %>
+        <% @months.each do |month, amount| %>
+          <%= render partial: "month_list", locals: { date: month.to_date, amount: amount } %>
         <% end %>
-        <tr>
+        <tr class="warning">
           <td><b>Summary</b></td>
           <td colspan="2"><b><%= @total_amount %></b></td>
         </tr>

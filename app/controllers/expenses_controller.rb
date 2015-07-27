@@ -1,7 +1,13 @@
 class ExpensesController < ApplicationController
   before_action :authenticate_user!
 
-  def index
+  before_action :load_details
+
+  def load_details
+    @expense_details = Expense.all.map(&:detail).uniq.join(",")
+  end
+
+  def index   
     @expenses = current_user.expenses.order("date desc, created_at desc")
   end
 

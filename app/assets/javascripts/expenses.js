@@ -23,6 +23,8 @@ Expenses = {
         var first_row = $("table#pay-list").find("tr#expense-form");          
         $(result).insertAfter($(first_row));
         $("#expense-form input:not('.pay-date')").val('');
+        $(tr_parent).find("input[name='expense_credit']").attr("checked", false);
+        $("input.expense-detail-autocomplete").focus();
       },
       error: function(){
         $(tr_parent).find("input.required").filter(function() {
@@ -161,6 +163,11 @@ Expenses = {
     $(document).on("click", ".edit-expense", Expenses.editExpense);
     $(document).on("click", ".cancel-update-expense", Expenses.cancelUpdateExpense);
     $(document).on("click", ".update-expense-btn", Expenses.updateExpense);
+
+    var availableTags = $("#expense-details-autocomplete").val().split(",");
+    $( ".expense-detail-autocomplete" ).autocomplete({
+      source: availableTags
+    });
   }
 };
 

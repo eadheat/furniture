@@ -14,7 +14,7 @@
         <input class="pay-date form-control required" type="text" value="<%= Time.now.strftime('%d.%m.%Y') %>" name="expense_date" />
       </td>
       <td>
-        <%= text_field_tag "expense_detail", nil, class: "form-control required" %>
+        <%= text_field_tag "expense_detail", nil, class: "form-control required expense-detail-autocomplete" %>
       </td>
       <td>
         <%= text_field_tag "expense_amount", nil, class: "form-control required" %>
