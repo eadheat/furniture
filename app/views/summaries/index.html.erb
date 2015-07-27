@@ -1,24 +1,21 @@
-<%= render partial: "shared/search_box" %>
-
 <div class="col-sm-12">
-  <br>
   <div>
-    <div><h3>Paid for <%= @year %></h3></div>
+    <div><h3>Summaries</h3></div>
     <table class="table">
       <thead>
         <tr class="info">
-          <th>Month</th>
+          <th>Year</th>
           <th>Total Amount (THB)</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <% @months.each do |month, amount| %>
-          <%= render partial: "month_list", locals: { date: month.to_date, amount: amount } %>
+        <% @summaries.each do |year, amount| %>
+          <%= render partial: "year_list", locals: { year: year, amount: amount } %>
         <% end %>
         <tr class="warning">
           <td><b>Summary</b></td>
-          <td colspan="2"><b><%= @total_amount %></b></td>
+          <td colspan="2"><b><%= @total %></b></td>
         </tr>
       </tbody>
     </table>
