@@ -6,9 +6,8 @@ Rails.application.routes.draw do
         get :expense_details
       end
     end
-    resources :summaries
     resources :histories
-    resources :averages
+    resources :details
 
   # Example resource route with options:
   #   resources :products do

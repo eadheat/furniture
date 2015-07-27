@@ -22,6 +22,7 @@ Expenses = {
       success: function(result) {
         var first_row = $("table#pay-list").find("tr#expense-form");          
         $(result).insertAfter($(first_row));
+        $("#expense-form input:not('.pay-date')").val('');
       },
       error: function(){
         $(tr_parent).find("input.required").filter(function() {

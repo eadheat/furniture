@@ -1,12 +1,8 @@
 <div>
   <form role="search">
-    <div class="col-sm-3">
-      <label class="col-sm-12">Month</label>
-      <%= select_tag "month", options_for_select(months), prompt: "Select", class: "form-control" %>
-    </div>
-    <div class="col-sm-3">
+    <div class="col-sm-6">
       <label class="col-sm-12">Year</label>
-      <%= select_tag "year", options_for_select(@expese_year_list), prompt: "Select", class: "form-control" %>
+      <%= select_tag "year", options_for_select(@expese_year_list, @year.present? ? @year : Time.now.year), class: "form-control" %>
     </div>
     <div class="col-sm-6">
       <label class="col-sm-12">&nbsp;</label>
