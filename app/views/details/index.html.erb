@@ -1,23 +1,23 @@
-<%= render partial: "shared/search_box" %>
-
 <div class="col-sm-12">
   <br>
   <table class="table">
     <thead>
       <tr class="bg-light-gray">
         <th>Day</th>
-        <th>Amount</th>
+        <th>Detail</th>
+        <th>Pay by</th>
+        <th>Amount (THB)</th>
       </tr>
     </thead>
     <tbody>
       <%= render partial: "day_list", collection: @paid_for_month, as: :expense %>
       <tr>
-        <td><b>Total</b></td>
-        <td><b><%= @total %></b></td>
+        <td colspan="1"><b>Total</b></td>
+        <td colspan="3"><b><%= @total %> THB</b></td>
       </tr>
       <tr>
-        <td><b>Average</b></td>
-        <td><b><%= @average %></b></td>
+        <td colspan="1"><b>Average</b></td>
+        <td colspan="3"><b><%= @average %> THB</b></td>
       </tr>
     </tbody>
   </table>

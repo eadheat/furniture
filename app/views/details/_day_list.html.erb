@@ -1,4 +1,6 @@
 <tr>
   <td><%= expense.date.strftime("%d %B  %Y") %></td>
+  <td><%= expense.detail %></td>
+  <td><%= expense.credit ? "Credit" : "Cash" %></td>
   <td><%= expense.amount %></td>
 </tr>
