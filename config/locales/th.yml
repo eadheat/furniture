@@ -1,0 +1,10 @@
+th:
+  thai: "ไทย"
+  english: "อังกฤษ"
+  language: "ภาษา"
+  sign_in: "เข้าสู่ระบบ"
+  sign_out: "ออกจากระบบ"
+  my_expenses: "รายจ่ายของฉัน"
+  monthly: "ประจำเดือน"
+  yearly: "ประจำปี"
+  notes: "สมุดบันทึก"

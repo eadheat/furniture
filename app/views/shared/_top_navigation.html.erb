@@ -17,11 +17,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><%= link_to "My Expenses", expenses_path if user_signed_in? %></li>
+            <li><%= link_to t("my_expenses"), expenses_path if user_signed_in? %></li>
             <!-- <li><%#= link_to "Average", averages_path if user_signed_in? %></li> -->
-            <li><%= link_to "Monthly", histories_path if user_signed_in? %></li>
-            <li><%= link_to "Yearly", summaries_path if user_signed_in? %></li>
-            <li><%= link_to "Notes", "#" if user_signed_in? %></li>
+            <li><%= link_to t("monthly"), histories_path if user_signed_in? %></li>
+            <li><%= link_to t("yearly"), summaries_path if user_signed_in? %></li>
+            <li><%= link_to t("notes"), "#" if user_signed_in? %></li>
           </ul>
           <!-- <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
@@ -30,15 +30,15 @@
             <button type="submit" class="btn btn-default">Submit</button>
           </form> -->
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Thai <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Thai</a></li>
-                <li><a href="#">English</a></li>
-              </ul>
+            <li>
+              <% if I18n.locale.to_s == "th" %>
+                <%= link_to t("english"), url_for(params.merge({locale: 'en'})) %>
+              <% else %>
+                <%= link_to t("thai"), url_for(params.merge({locale: 'th'})) %>
+              <% end %>
             </li>
-            <li><%= link_to "Sign In", new_user_session_path unless user_signed_in? %></li>
-            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete if user_signed_in? %></li>
+            <li><%= link_to t("sign_in"), new_user_session_path unless user_signed_in? %></li>
+            <li><%= link_to t("sign_out"), destroy_user_session_path, method: :delete if user_signed_in? %></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
