@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources  :homes
   resources :expenses do
     member do 
       get :expense_details
@@ -10,5 +9,5 @@ Rails.application.routes.draw do
   resources :details
   resources :summaries
 
-  root to: "homes#index"
+  root to: "expenses#index"
 end
