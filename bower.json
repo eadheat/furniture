@@ -1,0 +1,20 @@
+{
+  "name": "furniture",
+  "version": "0.0.0",
+  "homepage": "https://github.com/eadheat/furniture",
+  "authors": [
+    "Ead Bannamol <ead@iwa.fi>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fullcalendar": "~2.3.2"
+  }
+}

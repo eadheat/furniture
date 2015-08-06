@@ -17,4 +17,5 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require slick.min
+//= require fullcalendar/dist/fullcalendar
 //= require global

@@ -19,5 +19,6 @@
  *= require bootstrap-datetimepicker
  *= require bootstrap_custom
  *= require pagination
+ *= require fullcalendar/dist/fullcalendar
  *= require global
  */
