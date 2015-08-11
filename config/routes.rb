@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     resources :histories
     resources :details
     resources :summaries
-    resources :notes
+    resources :notes do
+      collection do
+        get :event
+      end
+    end
   end
   
   root to: "expenses#index"

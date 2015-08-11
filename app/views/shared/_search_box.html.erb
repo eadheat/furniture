@@ -1,7 +1,7 @@
 <div>
   <form role="search">
     <div class="col-sm-6">
-      <label class="col-sm-12">Year</label>
+      <label class="col-sm-12 row">Year</label>
       <%= select_tag "year", options_for_select(@expese_year_list, @year.present? ? @year : Time.now.year), class: "form-control" %>
     </div>
     <div class="col-sm-6">

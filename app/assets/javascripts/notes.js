@@ -1,9 +1,19 @@
 Notes = {
+  eventClicked: function(calEvent, jsEvent, view){
+    alert(calEvent.title);
+  },
+  dayClicked: function(date, jsEvent, view){
+    alert("dayClicked");
+  },
   init: function(){
     $('#calendar').fullCalendar({
-      dayClick: function() {
-        alert('a day has been clicked!');
-      }
+      eventSources: [{
+        url: "/th/notes/event",
+        color: 'sky',
+        textColor: 'black'
+      }],
+      dayClick: Notes.dayClicked,
+      eventClick: Notes.eventClicked,
     });
   }
 };
