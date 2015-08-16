@@ -1,0 +1,36 @@
+<div id='calendar'></div>
+<div id="click-dialog" class="hidden">
+  <%= form_tag("#", id: "event-form") do %>
+    <div class="form-group clearfix">
+      <div id="event-status" class="error col-xs-12"></div>
+    </div>
+    <div class="form-group clearfix">
+      <div>
+        <div class="col-xs-3 col-sm-1">From: </div>
+        <div class="col-xs-3 col-sm-5 text-center green" id="start-event-date">
+          <%= Time.now.to_date.strftime("%d/%m/%Y") %>
+        </div>
+        <div class="col-xs-3 col-sm-1">To: </div>
+        <div class="col-xs-3 col-sm-5">
+          <%= 
+            text_field_tag "end_date", 
+            nil, 
+            id: "end-event-date", 
+            class: "form-control datepicker" 
+          %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group clearfix">
+      <div class="col-xs-12">Description:</div>
+      <div class="col-xs-12">
+        <%= 
+          text_area_tag "description", 
+          nil,
+          id: "description_id", 
+          class: "form-control"
+        %>
+      </div>
+    </div>
+  <% end %>
+</div>

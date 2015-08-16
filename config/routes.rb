@@ -10,9 +10,10 @@ Rails.application.routes.draw do
     resources :histories
     resources :details
     resources :summaries
-    resources :notes do
+    resources :events do
       collection do
         get :event
+        post :add_event
       end
     end
   end
