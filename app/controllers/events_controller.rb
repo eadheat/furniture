@@ -3,33 +3,27 @@ class EventsController < ApplicationController
 
   def event
     events = current_user.events
-    # json = [
-    #   {
-    #     title: "My Event",
-    #     allDay: true,
-    #     start: "2015-08-14"
-    #   },
-    #   {
-    #     title: "My Event 2",
-    #     allDay: true,
-    #     start: "2015-08-16",
-    #     end: "2015-08-18"
-    #   },
-    # ]
     events = events.map do |event|
        {
+        id: event.id,
         title: event.description,
         allDay: true,
         start: event.from,
-        end: event.to
+        end: event.to + 1.day,
+        description: event.description
       }
     end
     render json: events
   end
 
   def add_event
-    event = Event.new(event_params)
-    event.user = current_user
+    if params[:event][:id].present?
+      event = Event.find(params[:event][:id])
+      event.assign_attributes(event_params)
+    else
+      event = Event.new(event_params)
+      event.user = current_user
+    end
 
     if event.save
       render json: {success: true, errors: nil}

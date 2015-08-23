@@ -1,12 +1,12 @@
 Events = {
   eventClicked: function(calEvent, jsEvent, view){
-    alert(calEvent.title);
-  },
-  showClickDialog: function(date, jsEvent, view){
+    $("#event-status").text("");
     $("#click-dialog").removeClass("hidden");
-    var m = $.datepicker.formatDate('dd/mm/yy', new Date(date));
-    $("#start-event-date").text(m);
-    $("#end-event-date").text(m);
+    $("input#event-id").val(calEvent.id);
+    var start = $.datepicker.formatDate('dd/mm/yy', new Date(calEvent.start));
+    var end = $.datepicker.formatDate('dd/mm/yy', new Date(calEvent.end));
+    $("#start-event-date").text(start);
+    $("#description_id").val(calEvent.description);
     $("#click-dialog").dialog({
       modal: true,
       title: "Add Event",
@@ -20,11 +20,34 @@ Events = {
         }
       }
     });
+
+    $( ".datepicker" ).datepicker( "setDate", end );
+  },
+  showClickDialog: function(date, jsEvent, view){ 
+    $("#click-dialog").removeClass("hidden");   
+    var m = $.datepicker.formatDate('dd/mm/yy', new Date(date));
+    $("#start-event-date").text(m);
+    $("#click-dialog").dialog({
+      modal: true,
+      title: "Add Event",
+      minWidth: 480,
+      minHeight: 270,
+      buttons: {
+        "Add Event": Events.addEventSubmit,
+        Cancel: function() {
+          $("#click-dialog").dialog("destroy");
+          $("#click-dialog").addClass("hidden");
+        }
+      }
+    });
+
+    $( ".datepicker" ).datepicker( "setDate", m );
   },
   addEventSubmit: function(){
     var eventForm = $("#event-form");
     var formData = {
       utf8: "1",
+      "event[id]": $("input#event-id").val(),
       "event[from]": $("#start-event-date").text(),
       "event[to]": $("#end-event-date").val(),
       "event[description]": $("#description_id").val()
@@ -59,13 +82,15 @@ Events = {
   init: function(){
     $('.datepicker').datepicker({
       format: 'dd/mm/yyyy',
+      autoclose: true,
+      todayHighlight: true
     });
 
     $('#calendar').fullCalendar({
       eventSources: [{
         url: "/th/events/event",
         color: 'sky',
-        textColor: 'black'
+        textColor: 'white',
       }],
       dayClick: Events.dayClicked,
       eventClick: Events.eventClicked,
