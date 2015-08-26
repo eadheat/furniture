@@ -1,12 +1,8 @@
 <div>
-  <form role="search">
+  <form role="search" id="search-by-year">
     <div class="col-sm-6">
       <label class="col-sm-12 row">Year</label>
       <%= select_tag "year", options_for_select(@expese_year_list, @year.present? ? @year : Time.now.year), class: "form-control" %>
-    </div>
-    <div class="col-sm-6">
-      <label class="col-sm-12">&nbsp;</label>
-      <button type="submit" class="btn btn-default">Submit</button>
     </div>
   </form>
 </div>

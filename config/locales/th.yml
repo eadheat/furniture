@@ -8,6 +8,8 @@ th:
   monthly: "ประจำเดือน"
   yearly: "ประจำปี"
   notes: "สมุดบันทึก"
+  annual: "ประจำปี"
+  summary: "สรุปยอด"
 
   activerecord:
     errors:

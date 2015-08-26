@@ -8,6 +8,8 @@ en:
   monthly: "Monthly"
   yearly: "Annual"
   notes: "Notes"
+  annual: "Annual"
+  summary: "Expenses Summary"
 
   activerecord:
     errors:

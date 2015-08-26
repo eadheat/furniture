@@ -42,7 +42,7 @@ Expenses = {
       },
       timeout: 10000,
       type: "post",
-      url: "/expenses"
+      url: "/"+locale+"/expenses"
     });
   },
   removeExpense: function(){
@@ -61,7 +61,7 @@ Expenses = {
       },
       timeout: 10000,
       type: "delete",
-      url: "/expenses/"+expense_id
+      url: "/"+locale+"/expenses/"+expense_id
     });
   },
   editExpense: function(){
@@ -89,7 +89,7 @@ Expenses = {
       },
       timeout: 10000,
       type: "get",
-      url: "/expenses/"+expense_id+"/expense_details"
+      url: "/"+locale+"/expenses/"+expense_id+"/expense_details"
     });
 
     $(tr_parent).find(".expense-text-show").show();
@@ -154,7 +154,7 @@ Expenses = {
       },
       timeout: 10000,
       type: "put",
-      url: "/expenses/"+expense_id
+      url: "/"+locale+"/expenses/"+expense_id
     });
   },
   init: function(){
@@ -170,5 +170,10 @@ Expenses = {
     });
   }
 };
+
+var locale = window.location.pathname.split( '/' )[1];
+if (locale.length < 1){
+  locale = "th"
+}
 
 $(Expenses.init);
