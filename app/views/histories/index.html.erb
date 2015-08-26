@@ -6,7 +6,7 @@
     <div><h4>Paid for <%= @year %></h4></div>
     <table class="table">
       <thead>
-        <tr class="info">
+        <tr class="bg-gray">
           <th>Month</th>
           <th>Total Amount (THB)</th>
           <th>Actions</th>
@@ -16,7 +16,7 @@
         <% @months.each do |month, amount| %>
           <%= render partial: "month_list", locals: { date: month.to_date, amount: amount } %>
         <% end %>
-        <tr class="info">
+        <tr class="add-border-top">
           <td><b>Summary</b></td>
           <td colspan="2"><b><%= @total_amount %></b></td>
         </tr>

@@ -1,7 +1,7 @@
 <div class="col-sm-12">
   <table class="table">
     <thead>
-      <tr class="info">
+      <tr class="bg-gray">
         <th>Day</th>
         <th>Detail</th>
         <th>Pay by</th>
@@ -10,11 +10,11 @@
     </thead>
     <tbody>
       <%= render partial: "day_list", collection: @paid_for_month, as: :expense %>
-      <tr class="warning">
+      <tr class="add-border-top">
         <td colspan="1"><b>Total</b></td>
         <td colspan="3"><b><%= @total %> THB</b></td>
       </tr>
-      <tr class="warning">
+      <tr>
         <td colspan="1"><b>Average</b></td>
         <td colspan="3"><b><%= @average %> THB</b></td>
       </tr>
