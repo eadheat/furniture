@@ -33,6 +33,15 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    event = current_user.events.find(params[:id])
+    if event.destroy
+      head(:ok)
+    else
+      head(:forbidden)
+    end
+  end
+
   private
   def event_params
     params.require(:event).permit(:from, :to, :description);

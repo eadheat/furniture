@@ -1,6 +1,8 @@
 Events = {
   eventClicked: function(calEvent, jsEvent, view){
     $('#click-dialog').modal();
+    $("#delete-event-btn-id").attr("eid", calEvent.id);
+    $("#delete-event-btn-id").show();
 
     $("#event-status").text("");
     $("#modal-event-title").text("Event Details");
@@ -57,6 +59,30 @@ Events = {
     $("#description_id").val("");
     Events.showClickDialog(date, jsEvent, view);
   },
+  removeEvent: function(){
+    if (!confirm("Are you sure?")) {
+      return false;
+    }
+    var eid = $(this).attr("eid");
+    var url = "/en/events/"+ eid
+    $.ajax({
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+      },
+      dataType: 'json',
+      success: function(result) {
+        $("#calendar").fullCalendar("refetchEvents");
+        $('#click-dialog').modal('hide');
+      },
+      error: function(){
+        $("#calendar").fullCalendar("refetchEvents");
+        $('#click-dialog').modal('hide');
+      },
+      timeout: 10000,
+      type: "DELETE",
+      url: url
+    });
+  },
   init: function(){
     $('.datepicker').datepicker({
       format: 'dd/mm/yyyy',
@@ -64,7 +90,12 @@ Events = {
       todayHighlight: true
     });
 
+    $('#click-dialog').on('hidden.bs.modal', function (e) {
+      $("#delete-event-btn-id").hide();
+    });
+
     $(document).on("click", "#submit-event-btn-id", Events.addEventSubmit);
+    $(document).on("click", "#delete-event-btn-id", Events.removeEvent);
 
     $('#calendar').fullCalendar({
       eventSources: [{
