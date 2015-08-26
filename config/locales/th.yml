@@ -14,5 +14,7 @@ th:
       models:
         event:
           attributes:
+            to:
+              blank: "can't be blank"
             description:
-              blank: "can't be blank."
+              blank: "can't be blank"

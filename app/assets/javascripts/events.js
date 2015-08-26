@@ -1,45 +1,24 @@
 Events = {
   eventClicked: function(calEvent, jsEvent, view){
+    $('#click-dialog').modal();
+
     $("#event-status").text("");
-    $("#click-dialog").removeClass("hidden");
+    $("#modal-event-title").text("Event Details");
     $("input#event-id").val(calEvent.id);
     var start = $.datepicker.formatDate('dd/mm/yy', new Date(calEvent.start));
-    var end = $.datepicker.formatDate('dd/mm/yy', new Date(calEvent.end));
+    var end = $.datepicker.formatDate('dd/mm/yy', new Date(calEvent.end_date));
     $("#start-event-date").text(start);
     $("#description_id").val(calEvent.description);
-    $("#click-dialog").dialog({
-      modal: true,
-      title: "Add Event",
-      minWidth: 480,
-      minHeight: 270,
-      buttons: {
-        "Add Event": Events.addEventSubmit,
-        Cancel: function() {
-          $("#click-dialog").dialog("destroy");
-          $("#click-dialog").addClass("hidden");
-        }
-      }
-    });
-
+    
     $( ".datepicker" ).datepicker( "setDate", end );
   },
-  showClickDialog: function(date, jsEvent, view){ 
-    $("#click-dialog").removeClass("hidden");   
+  showClickDialog: function(date, jsEvent, view){   
+    $('#click-dialog').modal();
+
+    $("#event-status").text("");
+    $("#modal-event-title").text("Add Event");
     var m = $.datepicker.formatDate('dd/mm/yy', new Date(date));
-    $("#start-event-date").text(m);
-    $("#click-dialog").dialog({
-      modal: true,
-      title: "Add Event",
-      minWidth: 480,
-      minHeight: 270,
-      buttons: {
-        "Add Event": Events.addEventSubmit,
-        Cancel: function() {
-          $("#click-dialog").dialog("destroy");
-          $("#click-dialog").addClass("hidden");
-        }
-      }
-    });
+    $("#start-event-date").text(m);    
 
     $( ".datepicker" ).datepicker( "setDate", m );
   },
@@ -62,8 +41,7 @@ Events = {
         $("#event-status").text(result.errors);
         if (result.success){
           $("#calendar").fullCalendar("refetchEvents");
-          $("#click-dialog").dialog("destroy");
-          $("#click-dialog").addClass("hidden");
+          $('#click-dialog').modal('hide');
         }else{
           $("#event-status").text(result.errors);
         }
@@ -86,6 +64,8 @@ Events = {
       todayHighlight: true
     });
 
+    $(document).on("click", "#submit-event-btn-id", Events.addEventSubmit);
+
     $('#calendar').fullCalendar({
       eventSources: [{
         url: "/th/events/event",
@@ -93,7 +73,7 @@ Events = {
         textColor: 'white',
       }],
       dayClick: Events.dayClicked,
-      eventClick: Events.eventClicked,
+      eventClick: Events.eventClicked
     });
   }
 };

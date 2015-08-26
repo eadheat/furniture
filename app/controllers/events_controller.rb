@@ -10,6 +10,7 @@ class EventsController < ApplicationController
         allDay: true,
         start: event.from,
         end: event.to + 1.day,
+        end_date: event.to,
         description: event.description
       }
     end

@@ -8,3 +8,13 @@ en:
   monthly: "Monthly"
   yearly: "Annual"
   notes: "Notes"
+
+  activerecord:
+    errors:
+      models:
+        event:
+          attributes:
+            to:
+              blank: "can't be blank"
+            description:
+              blank: "can't be blank"
