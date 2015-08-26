@@ -19,7 +19,7 @@ class EventsController < ApplicationController
 
   def add_event
     if params[:event][:id].present?
-      event = Event.find(params[:event][:id])
+      event = current_user.events.find(params[:event][:id])
       event.assign_attributes(event_params)
     else
       event = Event.new(event_params)
