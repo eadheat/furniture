@@ -109,3 +109,15 @@ table tr#expense-form {
 .inline {
   display: inline-block;
 }
+
+#login-facebook-link {
+  font-size: 14px;
+  background-color: #3b5998;
+  padding: 8px;
+  color: white;
+  border-radius: 3px;
+}
+
+#login-facebook-link:hover {
+  text-decoration: none;
+}
