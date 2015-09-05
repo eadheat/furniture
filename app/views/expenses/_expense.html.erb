@@ -1,6 +1,6 @@
 <table id="pay-list" class="table">
   <thead>
-    <tr>
+    <tr class="hidden-xs">
       <th>DATE</th>
       <th>Detail</th>
       <th>Price (THB)</th>
@@ -11,16 +11,30 @@
   <tbody>
     <tr id="expense-form">
       <td>
-        <input class="pay-date form-control required" type="text" value="<%= Time.now.strftime('%d.%m.%Y') %>" name="expense_date" />
+        <input 
+          class="pay-date form-control required" 
+          type="text" 
+          value="<%= Time.now.strftime('%d.%m.%Y') %>" 
+          name="expense_date"
+          placeholder="Date" />
       </td>
       <td>
-        <%= text_field_tag "expense_detail", nil, class: "form-control required expense-detail-autocomplete" %>
+        <%= 
+          text_field_tag "expense_detail", nil, 
+          placeholder: "Detail", 
+          class: "form-control required expense-detail-autocomplete" 
+        %>
       </td>
       <td>
-        <%= text_field_tag "expense_amount", nil, class: "form-control required" %>
+        <%= 
+          text_field_tag "expense_amount", nil, 
+          placeholder: "Amount",
+          class: "form-control required" 
+        %>
       </td>
       <td class="payment-check-box">
-        <%= check_box_tag "expense_credit", nil %>
+        <span class="visible-xs white-text">Pay by Credit</span>
+        <%= check_box_tag "expense_credit", nil, false %>
       </td>
       <td colspan="2">
         <%= button_tag "+ Add", id: "insert-expense", class: "btn btn-primary" %>

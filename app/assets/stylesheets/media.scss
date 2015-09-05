@@ -1,0 +1,27 @@
+@media screen and (max-width: 767px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  #wrap .container {
+    padding: 15px 0;
+  }
+
+  table.table tr td, table.table tr th {
+    width: 100%;
+    display: block;
+  }
+
+  table.table tr:not(:last-child) {
+    border-bottom: 1px solid #DDD;
+  }
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #calendar {
+    margin: 0 15px;
+  }
+}

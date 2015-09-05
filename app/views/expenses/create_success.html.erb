@@ -1,17 +1,31 @@
 <tr>
   <td>
     <span id="expense-date" class="expense-text-show"><%= @expense.date.strftime("%d %B") %></span>
-    <%= text_field_tag "expense_date", @expense.date.strftime('%d.%m.%Y'), class: "pay-date expense-value form-control required" %>
+    <%= 
+      text_field_tag "expense_date", 
+      @expense.date.strftime('%d.%m.%Y'),
+      placeholder: "Date", 
+      class: "pay-date expense-value form-control required" %>
   </td>
   <td>
     <span id="expense-detail" class="expense-text-show"><%= @expense.detail %></span>
-    <%= text_field_tag "expense_detail", @expense.detail, class: "expense-value form-control required" %>
+    <%= 
+      text_field_tag "expense_detail", 
+      @expense.detail,
+      placeholder: "Detail",
+      class: "expense-value form-control required" 
+    %>
   </td>
   <td>
     <span id="expense-amount" class="expense-text-show"><%= @expense.amount %></span>
-    <%= text_field_tag "expense_amount", @expense.amount, class: "expense-value form-control required" %>
+    <%= 
+      text_field_tag "expense_amount", 
+      @expense.amount, 
+      placeholder: "Amount",
+      class: "expense-value form-control required" 
+    %>
   </td>
-  <td class="text-center payment-check-box">
+  <td class="payment-check-box">
     <span id="expense-credit" class="expense-text-show">
       <%= @expense.credit ? "<span class='credit'>Credit</span>".html_safe : "Cash" %>
     </span>

@@ -33,6 +33,7 @@ footer {
   min-height: 10%;
   border-top: 1px solid $hr-color;
   padding: 20px 0;
+  text-align: center;
 }
 
 .text-red {
@@ -103,4 +104,8 @@ table tr#expense-form {
 
 .add-border-top {
   border-top: 1px solid $border-color;
+}
+
+.inline {
+  display: inline-block;
 }

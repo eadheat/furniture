@@ -31,14 +31,20 @@ h5 {
   }
 }
 
-/* remove if have logo */
-.navbar-collapse {
-  padding-left: 0;
-}
-
 .checkbox input[type=checkbox], 
 .checkbox-inline input[type=checkbox], 
 .radio input[type=radio], 
 .radio-inline input[type=radio] {
   margin-top: 0;
+}
+
+.navbar-header .navbar-toggle {
+  margin-right: 25px;
+}
+
+.container-fluid>.navbar-collapse, 
+.container-fluid>.navbar-header, 
+.container>.navbar-collapse, 
+.container>.navbar-header {
+  margin-left: 0;
 }

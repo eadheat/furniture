@@ -2,7 +2,6 @@
 
 table td.payment-check-box {
   vertical-align: middle !important;
-  text-align: center;
 }
 
 .remove-expense {
@@ -23,4 +22,8 @@ table th.menu-actions {
 
 table td.edit-action, td.delete-action {
   width: 70px;
+}
+
+.white-text {
+  color: white;
 }
