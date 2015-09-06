@@ -16,7 +16,8 @@ Rails.application.routes.draw do
         post :add_event
       end
     end
-  end
+
+    root to: "expenses#index"
+  end 
   
-  root to: "expenses#index"
 end
