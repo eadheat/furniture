@@ -3,10 +3,6 @@
     overflow-x: hidden;
   }
 
-  #wrap .container {
-    padding: 15px 0;
-  }
-
   table.table tr td, table.table tr th {
     width: 100%;
     display: block;
@@ -23,5 +19,14 @@
 
   #calendar {
     margin: 0 15px;
+  }
+
+  #calendar {
+    padding: 0;
+  }
+
+  .navbar-collapse {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }

@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xs-12 text-right">
+    <ul id="switch-language">
+      <li>
+        <% if I18n.locale.to_s == "th" %>
+          <%= link_to url_for(params.merge({locale: 'en'})) do %>
+            <%#= t('english') %>
+            <%= image_tag "en-flag.png", class: "flag" %>
+          <% end %>
+        <% else %>
+          <%= link_to url_for(params.merge({locale: 'th'})) do %>
+            <%#= t('thai') %>
+            <%= image_tag "th-flag.png", class: "flag" %>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>

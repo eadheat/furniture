@@ -9,6 +9,11 @@ html, body {
   max-width: 960px;
 }
 
+img.flag {
+ height: 15px;
+ width: auto;
+} 
+
 #wrap {
   min-height: 90%;
   position: relative;
@@ -25,7 +30,7 @@ html, body {
   }
 
   .container {
-    padding: 30px 0;
+    padding: 15px 0;
   }
 }
 
@@ -34,6 +39,10 @@ footer {
   border-top: 1px solid $hr-color;
   padding: 20px 0;
   text-align: center;
+}
+
+#switch-language {
+  list-style-type: none;
 }
 
 .text-red {
