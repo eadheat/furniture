@@ -37,7 +37,7 @@ img.flag {
 footer {
   min-height: 10%;
   border-top: 1px solid $hr-color;
-  padding-top: 15px;
+  padding-top: 10px;
   text-align: center;
 }
 
@@ -129,4 +129,16 @@ table tr#expense-form {
 
 #login-facebook-link:hover {
   text-decoration: none;
+}
+
+textarea {
+  resize: none;
+}
+
+#contactus {
+  cursor: pointer;
+  color: #0000EE;
+  border-bottom: 1px dashed;
+  display: inline-block;
+  padding-top: 5px;
 }

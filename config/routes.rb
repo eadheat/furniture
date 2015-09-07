@@ -16,8 +16,13 @@ Rails.application.routes.draw do
         post :add_event
       end
     end
+    resources :contacts do
+      collection do
+        post :send_contact
+      end 
+    end
 
-    root to: "expenses#index"
-  end 
+  end
+  root to: "expenses#index"
   
 end
