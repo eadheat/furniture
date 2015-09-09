@@ -9,7 +9,7 @@ en:
   yearly: "Annual"
   notes: "Notes"
   annual: "Annual"
-  summary: "Expenses Summary"
+  summary: "Summary"
 
   activerecord:
     errors:
