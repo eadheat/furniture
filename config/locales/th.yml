@@ -10,6 +10,35 @@ th:
   notes: "สมุดบันทึก"
   annual: "ประจำปี"
   summary: "สรุปยอด"
+  date: "วันที่"
+  detail: "รายการ"
+  price: "ราคา (บาท)"
+  pay_by_credit: "จ่ายด้วยบัตรเครดิต"
+  add: "เพิ่ม"
+  amount: "ราคา"
+  add_new: "+ เพิ่ม"
+  cash: "เงินสด"
+  credit: "บัตรเครดิต"
+  edit: "แก้ไข"
+  save: "บันทึก"
+  cancel: "ยกเลิก"
+  contact_us: "ติดต่อเรา"
+  name: "ชื่อ"
+  email_or_phone: "อีเมล์ / เบอร์โทร"
+  message: "ข้อความ"
+  send: "ส่งข้อความ"
+  close: "ปิด"
+  pay_with: "จ่ายด้วย"
+  amount_thb: "จำนวนเงิน (บาท)"
+  total: "รวม"
+  average: "เฉลี่ย"
+  thb: "บาท"
+  details: "ดูรายละเอียด"
+  year: "ปี"
+  total_amount: "รวม (บาท)"
+  actions: "จัดการ"
+  paid_for: "รายจ่ายสำหรับปี "
+  month: "เดือน"
 
   activerecord:
     errors:
@@ -17,6 +46,6 @@ th:
         event:
           attributes:
             to:
-              blank: "can't be blank"
+              blank: "ไม่สามารถเป็นค่าว่าง"
             description:
-              blank: "can't be blank"
+              blank: "ไม่สามารถเป็นค่าว่าง"

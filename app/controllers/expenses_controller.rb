@@ -41,7 +41,7 @@ class ExpensesController < ApplicationController
         date: expense.date.strftime("%d %B"),
         detail: expense.detail,
         amount: expense.amount,
-        credit: expense.credit ? "<span class='credit'>Credit</span>" : "Cash",
+        credit: expense.credit ? "<span class='credit'>#{t('credit')}</span>" : t("cash"),
         is_credit: expense.credit
       }
     else
@@ -56,7 +56,7 @@ class ExpensesController < ApplicationController
         date: expense.date.strftime("%d %B"),
         detail: expense.detail,
         amount: expense.amount,
-        credit: expense.credit ? "<span class='credit'>Credit</span>" : "Cash",
+        credit: expense.credit ? "<span class='credit'>#{t('credit')}</span>" : t("cash"),
         is_credit: expense.credit
       }
     else

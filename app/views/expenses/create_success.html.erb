@@ -4,7 +4,7 @@
     <%= 
       text_field_tag "expense_date", 
       @expense.date.strftime('%d.%m.%Y'),
-      placeholder: "Date", 
+      placeholder: t("date"), 
       class: "pay-date expense-value form-control required" %>
   </td>
   <td>
@@ -12,7 +12,7 @@
     <%= 
       text_field_tag "expense_detail", 
       @expense.detail,
-      placeholder: "Detail",
+      placeholder: t("detail"),
       class: "expense-value form-control required" 
     %>
   </td>
@@ -21,22 +21,30 @@
     <%= 
       text_field_tag "expense_amount", 
       @expense.amount, 
-      placeholder: "Amount",
+      placeholder: t("amount"),
       class: "expense-value form-control required" 
     %>
   </td>
   <td class="payment-check-box">
     <span id="expense-credit" class="expense-text-show">
-      <%= @expense.credit ? "<span class='credit'>Credit</span>".html_safe : "Cash" %>
+      <%= @expense.credit ? "<span class='credit'>#{t('credit')}</span>".html_safe : t("cash") %>
     </span>
     <%= check_box_tag "expense_credit", nil, @expense.credit, class: "expense-value" %>
   </td>
   <td>
-    <span class="expense-text-show edit-expense pointer" id="<%= @expense.id %>">Edit</span>
-    <button class="expense-value update-expense-btn btn btn-default" id="<%= @expense.id %>">Save</button>  
+    <span class="expense-text-show edit-expense pointer" id="<%= @expense.id %>">
+      <%= t('edit') %>
+    </span>
+    <button class="expense-value update-expense-btn btn btn-default" id="<%= @expense.id %>">
+      <%= t('save') %>
+    </button>  
   </td>
   <td class="cancel-or-remove-expense">
-    <span class="remove-expense pointer expense-text-show" id="<%= @expense.id %>"><i class="fa fa-times fa-lg"></i></span>
-    <span class="cancel-update-expense expense-value pointer" id="<%= @expense.id %>">Cancel</span>
+    <span class="remove-expense pointer expense-text-show" id="<%= @expense.id %>">
+      <i class="fa fa-times fa-lg"></i>
+    </span>
+    <span class="cancel-update-expense expense-value pointer" id="<%= @expense.id %>">
+      <%= t('cancel') %>
+    </span>
   </td>
 </tr>

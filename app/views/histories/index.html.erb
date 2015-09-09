@@ -3,13 +3,13 @@
 <div class="col-sm-12">
   <br>
   <div>
-    <div><h4>Paid for <%= @year %></h4></div>
+    <div><h4><%= t('paid_for') %><%= @year %></h4></div>
     <table class="table">
       <thead>
         <tr class="bg-gray hidden-xs">
-          <th>Month</th>
-          <th>Total Amount (THB)</th>
-          <th>Actions</th>
+          <th><%= t('month') %></th>
+          <th><%= t('total_amount') %></th>
+          <th><%= t('actions') %></th>
         </tr>
       </thead>
       <tbody>
@@ -17,7 +17,7 @@
           <%= render partial: "month_list", locals: { date: month.to_date, amount: amount } %>
         <% end %>
         <tr class="add-border-top">
-          <td><b>Summary</b></td>
+          <td><b><%= t('summary') %></b></td>
           <td colspan="2"><b><%= @total_amount %></b></td>
         </tr>
       </tbody>

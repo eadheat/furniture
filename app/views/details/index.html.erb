@@ -2,21 +2,21 @@
   <table class="table">
     <thead>
       <tr class="bg-gray hidden-xs">
-        <th>Day</th>
-        <th>Detail</th>
-        <th>Pay by</th>
-        <th>Amount (THB)</th>
+        <th><%= t('date') %></th>
+        <th><%= t('detail') %></th>
+        <th><%= t('pay_with') %></th>
+        <th><%= t('amount_thb') %></th>
       </tr>
     </thead>
     <tbody>
       <%= render partial: "day_list", collection: @paid_for_month, as: :expense %>
       <tr class="add-border-top">
-        <td colspan="1"><b>Total</b></td>
-        <td colspan="3"><b><%= @total %> THB</b></td>
+        <td colspan="1"><b><%= t('total') %></b></td>
+        <td colspan="3"><b><%= @total %> <%= t("thb") %></b></td>
       </tr>
       <tr>
-        <td colspan="1"><b>Average</b></td>
-        <td colspan="3"><b><%= @average %> THB</b></td>
+        <td colspan="1"><b><%= t('average') %></b></td>
+        <td colspan="3"><b><%= @average %> <%= t("thb") %></b></td>
       </tr>
     </tbody>
   </table>

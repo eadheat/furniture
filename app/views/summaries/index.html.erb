@@ -1,12 +1,12 @@
 <div class="col-sm-12">
   <div>
-    <div><h3>Summaries</h3></div>
+    <div><h3><%= t('summaries') %></h3></div>
     <table class="table hidden-xs">
       <thead>
         <tr class="info">
-          <th>Year</th>
-          <th>Total Amount (THB)</th>
-          <th>Actions</th>
+          <th><%= t('year') %></th>
+          <th><%= t('total_amount') %></th>
+          <th><%= t('actions') %></th>
         </tr>
       </thead>
       <tbody>
@@ -14,7 +14,7 @@
           <%= render partial: "year_list", locals: { year: year, amount: amount } %>
         <% end %>
         <tr class="warning">
-          <td><b>Summary</b></td>
+          <td><b><%= t('summary') %></b></td>
           <td colspan="2"><b><%= @total %></b></td>
         </tr>
       </tbody>

@@ -1,11 +1,11 @@
 <table id="pay-list" class="table">
   <thead>
     <tr class="hidden-xs">
-      <th>DATE</th>
-      <th>Detail</th>
-      <th>Price (THB)</th>
-      <th>Pay by Credit</th>
-      <th class="menu-actions" colspan="2">Add</th>
+      <th><%= t('date') %></th>
+      <th><%= t('detail') %></th>
+      <th><%= t('price') %></th>
+      <th><%= t('pay_by_credit') %></th>
+      <th class="menu-actions" colspan="2"></th>
     </tr>
   </thead>
   <tbody>
@@ -16,28 +16,28 @@
           type="text" 
           value="<%= Time.now.strftime('%d.%m.%Y') %>" 
           name="expense_date"
-          placeholder="Date" />
+          placeholder="<%= t('date') %>" />
       </td>
       <td>
         <%= 
           text_field_tag "expense_detail", nil, 
-          placeholder: "Detail", 
+          placeholder: t('detail'), 
           class: "form-control required expense-detail-autocomplete" 
         %>
       </td>
       <td>
         <%= 
           text_field_tag "expense_amount", nil, 
-          placeholder: "Amount",
+          placeholder: t('amount'),
           class: "form-control required" 
         %>
       </td>
       <td class="payment-check-box">
-        <span class="visible-xs white-text">Pay by Credit</span>
+        <span class="visible-xs white-text"><%= t('pay_by_credit') %></span>
         <%= check_box_tag "expense_credit", nil, false %>
       </td>
       <td colspan="2">
-        <%= button_tag "+ Add", id: "insert-expense", class: "btn btn-primary" %>
+        <%= button_tag t('add_new'), id: "insert-expense", class: "btn btn-primary" %>
       </td>
     </tr>
     <%= render partial: "expense_list", collection: @expenses, as: :expense %>
