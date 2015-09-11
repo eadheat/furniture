@@ -39,6 +39,7 @@ en:
   actions: "Actions"
   paid_for: "Paid for "
   month: "Month"
+  my_expenses_title: "My Expenses"
 
   activerecord:
     errors:

@@ -39,6 +39,7 @@ th:
   actions: "จัดการ"
   paid_for: "รายจ่ายสำหรับปี "
   month: "เดือน"
+  my_expenses_title: "บัญชีบันทึกรายจ่าย"
 
   activerecord:
     errors:
