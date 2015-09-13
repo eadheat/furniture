@@ -100,7 +100,7 @@ Events = {
     $('#calendar').fullCalendar({
       eventSources: [{
         url: "/th/events/event",
-        color: 'sky',
+        color: '#009999',
         textColor: 'white',
       }],
       dayClick: Events.dayClicked,

@@ -8,7 +8,12 @@ class ExpensesController < ApplicationController
   end
 
   def index   
-    @expenses = current_user.expenses.order("date desc, created_at desc").paginate(:page => params[:page], :per_page => 30)
+    @current_date_total = current_user.expenses.where("DATE(date) = DATE(?)", Time.now).map(&:amount).sum
+    @expenses = current_user.expenses.order(
+                                        "date desc, created_at desc"
+                                      ).paginate(
+                                        :page => params[:page], :per_page => 30
+                                      )
   end
 
   def create
@@ -37,12 +42,14 @@ class ExpensesController < ApplicationController
     end
 
     if expense.save
+      @current_date_total = current_user.expenses.where("DATE(date) = DATE(?)", Time.now).map(&:amount).sum
       render json: {
         date: expense.date.strftime("%d %B"),
         detail: expense.detail,
         amount: expense.amount,
         credit: expense.credit ? "<span class='credit'>#{t('credit')}</span>" : t("cash"),
-        is_credit: expense.credit
+        is_credit: expense.credit,
+        tatol_for_today: @current_date_total
       }
     else
       head(:forbidden)
@@ -66,7 +73,8 @@ class ExpensesController < ApplicationController
 
   def destroy
     current_user.expenses.find(params[:id]).destroy
-    render json: {success: true}
+    @current_date_total = current_user.expenses.where("DATE(date) = DATE(?)", Time.now).map(&:amount).sum
+    render json: {success: true, tatol_for_today: @current_date_total}
   end
 
   private

@@ -1,5 +1,8 @@
 <%= hidden_field_tag "details", @expense_details, id: "expense-details-autocomplete" %>
-
+<div class="col-xs-12">
+  <h4 class="inline"><%= t('total_paid_money_for_today') %></h4>
+  <h4 class="inline bold" id="total_paid_money_for_today"><%= @current_date_total %></h4>
+</div>
 <div class="col-xs-12">
   <%= render partial: "expense" %>
 </div>  

@@ -40,6 +40,7 @@ en:
   paid_for: "Paid for "
   month: "Month"
   my_expenses_title: "My Expenses"
+  total_paid_money_for_today: "Total paid money for today: "
 
   activerecord:
     errors:

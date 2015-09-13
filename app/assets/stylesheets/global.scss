@@ -83,7 +83,7 @@ ul#menu-list {
 }
 
 table tr#expense-form {
-  background: gray;
+  background: #009999;
 }
 
 .pointer {
@@ -94,8 +94,8 @@ table tr#expense-form {
   border-color: red;
 }
 
-.bg-gray {
-  background: gray;
+.bg-light-green {
+  background: #009999;
   color: white;
 }
 
@@ -145,4 +145,8 @@ textarea {
 
 .hidden {
   display: none;
+}
+
+.bold {
+  font-weight: bold;
 }

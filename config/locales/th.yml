@@ -40,6 +40,7 @@ th:
   paid_for: "รายจ่ายสำหรับปี "
   month: "เดือน"
   my_expenses_title: "บัญชีบันทึกรายจ่าย"
+  total_paid_money_for_today: "รายจ่ายรวมของวันนี้: "
 
   activerecord:
     errors:

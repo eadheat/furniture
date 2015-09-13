@@ -20,6 +20,10 @@ Expenses = {
       },
       dataType: 'html',
       success: function(result) {
+        var paid_for_today = $("#total_paid_money_for_today").text();
+        var paid_total = parseFloat(paid_for_today) + parseFloat(expense_amount);
+        $("#total_paid_money_for_today").text(paid_total.toFixed(2));
+
         var first_row = $("table#pay-list").find("tr#expense-form");          
         $(result).insertAfter($(first_row));
         $("#expense-form input:not('.pay-date')").val('');
@@ -58,6 +62,7 @@ Expenses = {
       dataType: 'json',
       success: function(result) {
         $(obj).parents("tr").remove();
+        $("#total_paid_money_for_today").text(result.tatol_for_today);
       },
       timeout: 10000,
       type: "delete",
@@ -135,6 +140,7 @@ Expenses = {
       },
       dataType: 'json',
       success: function(result) {        
+        $("#total_paid_money_for_today").text(result.tatol_for_today);
         Expenses.updateExpenseTextDetails(result, tr_parent);
         Expenses.updateExpenseDetails(result, tr_parent);
 
