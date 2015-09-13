@@ -15,4 +15,6 @@ test:
 
 production:
   <<: *default
+  username: ENV["database_user"]
+  password: ENV["database_password"]
   database: EXPENSES_production

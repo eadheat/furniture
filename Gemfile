@@ -25,6 +25,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 gem 'will_paginate', '~> 3.0.6'
 gem 'mailcatcher'
 gem 'activeadmin', github: 'activeadmin'
+gem 'figaro'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -46,3 +47,12 @@ group :development, :test do
   gem 'parallel_tests'
 end
 
+group :development do
+  gem 'capistrano',         require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
+end
+
+gem 'puma'
