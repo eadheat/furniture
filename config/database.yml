@@ -14,7 +14,12 @@ test:
   database: EXPENSES_test<%= ENV['TEST_ENV_NUMBER'] %>
 
 production:
-  <<: *default
+  adapter: "postgresql"
+  min_messages: "WARNING"
+  host: "localhost"
+  encoding: "unicode"
   username: <%= ENV['database_user'] %>
   password: <%= ENV['database_password'] %>
-  database: EXPENSES_production
+  database: "EXPENSES_production"
+  pool: 5
+  timeout: 5000
