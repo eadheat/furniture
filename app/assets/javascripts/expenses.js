@@ -20,9 +20,8 @@ Expenses = {
       },
       dataType: 'html',
       success: function(result) {
-        var paid_for_today = $("#total_paid_money_for_today").text();
-        var paid_total = parseFloat(paid_for_today) + parseFloat(expense_amount);
-        $("#total_paid_money_for_today").text(paid_total.toFixed(2));
+        var paid_for_today = $(result).attr("money-for-today");
+        $("#total_paid_money_for_today").text(paid_for_today);
 
         var first_row = $("table#pay-list").find("tr#expense-form");          
         $(result).insertAfter($(first_row));

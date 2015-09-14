@@ -8,7 +8,7 @@ class ExpensesController < ApplicationController
   end
 
   def index   
-    @current_date_total = current_user.expenses.where("DATE(date) = DATE(?)", Time.now).map(&:amount).sum
+    total_money_for_today
     @expenses = current_user.expenses.order(
                                         "date desc, created_at desc"
                                       ).paginate(
@@ -26,6 +26,7 @@ class ExpensesController < ApplicationController
     @expense.user = current_user
 
     if @expense.save
+      total_money_for_today
       render "create_success", layout: false
     else
       head(:forbidden)
@@ -42,7 +43,7 @@ class ExpensesController < ApplicationController
     end
 
     if expense.save
-      @current_date_total = current_user.expenses.where("DATE(date) = DATE(?)", Time.now).map(&:amount).sum
+      total_money_for_today
       render json: {
         date: expense.date.strftime("%d %B"),
         detail: expense.detail,
@@ -73,13 +74,17 @@ class ExpensesController < ApplicationController
 
   def destroy
     current_user.expenses.find(params[:id]).destroy
-    @current_date_total = current_user.expenses.where("DATE(date) = DATE(?)", Time.now).map(&:amount).sum
+    total_money_for_today
     render json: {success: true, tatol_for_today: @current_date_total}
   end
 
   private
   def expenses_params
     params.require(:expense).permit(:date, :detail, :amount)
+  end
+
+  def total_money_for_today
+    @current_date_total = current_user.expenses.where("date = ?", Time.now.to_date).map(&:amount).sum
   end
 
 end
