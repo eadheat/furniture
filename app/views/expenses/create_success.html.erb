@@ -1,6 +1,6 @@
 <tr money-for-today="<%= @current_date_total %>">
   <td>
-    <span id="expense-date" class="expense-text-show"><%= @expense.date.strftime("%d %B") %></span>
+    <span id="expense-date" class="expense-text-show"><%= @expense.date.strftime("%d %B %Y") %></span>
     <%= 
       text_field_tag "expense_date", 
       @expense.date.strftime('%d.%m.%Y'),
