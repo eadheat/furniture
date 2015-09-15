@@ -30,4 +30,16 @@ class ApplicationController < ActionController::Base
     return nil if user_signed_in? && !current_user.admin?
     current_user
   end
+
+  def current_day
+    Time.now.localtime.day
+  end
+
+  def current_month
+    Time.now.localtime.month
+  end
+
+  def current_year
+    Time.now.localtime.year
+  end
 end

@@ -31,7 +31,7 @@ th:
   pay_with: "จ่ายด้วย"
   amount_thb: "จำนวนเงิน (บาท)"
   total: "รวม"
-  average: "เฉลี่ย"
+  average: "เฉลี่ย %{days} วัน"
   thb: "บาท"
   details: "ดูรายละเอียด"
   year: "ปี"

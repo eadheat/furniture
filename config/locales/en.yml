@@ -31,7 +31,7 @@ en:
   pay_with: "Pay with"
   amount_thb: "Amount (THB)"
   total: "Total"
-  average: "Average"
+  average: "Average %{days} day(s)"
   thb: "THB"
   details: "Details"
   year: "Year"

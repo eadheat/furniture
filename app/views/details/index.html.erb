@@ -1,4 +1,7 @@
 <div class="col-sm-12">
+  <% if @paid_for_month.present? %>
+    <h4><%= @paid_for_month.last.date.strftime("%B %Y") %></h4>
+  <% end %>
   <table class="table">
     <thead>
       <tr class="bg-light-green hidden-xs">
@@ -15,7 +18,7 @@
         <td colspan="3"><b><%= @total %> <%= t("thb") %></b></td>
       </tr>
       <tr>
-        <td colspan="1"><b><%= t('average') %></b></td>
+        <td colspan="1"><b><%= t('average', days: @days_in_month) %></b></td>
         <td colspan="3"><b><%= @average %> <%= t("thb") %></b></td>
       </tr>
     </tbody>

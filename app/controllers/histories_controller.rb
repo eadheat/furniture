@@ -2,9 +2,8 @@ class HistoriesController < ApplicationController
   before_action :authenticate_user!
 
   def index 
-    current_year = Time.now.localtime.year
     @expese_year_list = current_user.expenses.map(&:date).map(&:year).uniq
-    @year = (1.."#{current_year}".to_i).include?(params[:year].to_i) ? params[:year].to_i : Time.now.year
+    @year = (1.."#{current_year}".to_i).include?(params[:year].to_i) ? params[:year].to_i : current_year
 
     @months = {}
     @total_amount = 0
