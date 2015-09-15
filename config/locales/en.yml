@@ -41,6 +41,21 @@ en:
   month: "Month"
   my_expenses_title: "My Expenses"
   total_paid_money_for_today: "Total paid money for today: "
+  forgot_your_password: "Forgot your password?"
+  email: "Email"
+  password: "Password"
+  send_me_reset_password_instructions: "Send me reset password instructions"
+  sign_in: "Sign In"
+  sign_up: "Sing Up"
+  remember_me: "Remember me"
+  change_your_password: "Change your password"
+  new_password: "New password"
+  confirm_new_password: "Confirm new password"
+  change_my_password: "Change my password"
+  password_confirmation: "Password confirmation"
+  current_password: "Current password"
+  update: "Update"
+  characters_minimum: "(%{length} characters minimum)"
 
   activerecord:
     errors:

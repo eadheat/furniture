@@ -41,10 +41,37 @@ th:
   month: "เดือน"
   my_expenses_title: "บัญชีบันทึกรายจ่าย"
   total_paid_money_for_today: "รายจ่ายรวมของวันนี้: "
+  forgot_your_password: "ลืมรหัสผ่าน"
+  email: "อีเมล์"
+  password: "รหัสผ่าน"
+  send_me_reset_password_instructions: "ส่งอีเมล์หาฉันเพื่อเปลี่ยนรหัสผ่าน"
+  sign_in: "เข้าสู่ระบบ"
+  sign_up: "สมัครสมาชิก"
+  remember_me: "จดจำข้อมูล"
+  change_your_password: "เปลี่ยนรหัสผ่าน"
+  new_password: "รัสผ่านใหม่"
+  confirm_new_password: "ยืนยันรหัสผ่านใหม่"
+  change_my_password: "เปลี่ยนรหัสผ่าน"
+  password_confirmation: "ยืนยันรหัสผ่าน"
+  current_password: "รหัสผ่านปัจจุบัน"
+  update: "บันทึก"
+  characters_minimum: "(อย่างน้อย %{length} ตัวอักษร)"
 
   activerecord:
     errors:
       models:
+        user:
+          attributes:
+            email:
+              not_found: "นี้ไม่พบในระบบ"
+              blank: "ไม่สามารถเป็นค่าว่าง"
+            password:
+              blank: "ไม่สามารถเป็นค่าว่าง"
+            password_confirmation:
+              confirmation: "รหัสผ่านไม่ตรงกัน"
+            password:
+              too_short: "อย่างน้อย 8 ตัวอักษร"
+              blank: "ไม่สามารถเป็นค่าว่าง"
         event:
           attributes:
             to:

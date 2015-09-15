@@ -1,14 +1,14 @@
 <div class="col-sm-offset-4 col-xs-12 col-sm-4">   
-  <h2>Log in</h2>
+  <h3><%= t("sign_in") %></h3>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-group">
-      <%= f.label :email %><br />
+      <%= t('email') %><br />
       <%= f.email_field :email, autofocus: true, class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= f.label :password %><br />
+      <%= t('password') %><br />
       <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
     </div>
 
@@ -17,14 +17,14 @@
         <div class="checkbox">
           <label>
             <%= f.check_box :remember_me %>
-            Remember me
+            <%= t('remember_me') %>
           </label>
         </div>
       </div>
     <% end -%>
 
     <div class="actions form-group">
-      <%= f.submit "Log in", class: "btn btn-default" %>
+      <%= f.submit t("sign_in"), class: "btn btn-default" %>
     </div>
   <% end %>
 

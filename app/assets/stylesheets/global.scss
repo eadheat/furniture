@@ -150,3 +150,10 @@ textarea {
 .bold {
   font-weight: bold;
 }
+
+#error_explanation ul {
+  list-style-type: none;
+  padding-left: 0;
+  -webkit-padding-start: 0;
+  color: red;
+}
