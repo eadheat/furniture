@@ -9,7 +9,7 @@ RSpec.describe DetailsController, :type => :controller do
   describe "index" do
     it "render index page" do 
       sign_in_as(@user) do
-        get :index, month: "#{Time.now.month}", year: "#{Time.now.year}"
+        get :index, month: "#{Time.now.month}", year: "#{Time.now.year}", locale: :th
 
         expect(response).to render_template("index")
       end
@@ -46,11 +46,11 @@ RSpec.describe DetailsController, :type => :controller do
       ) #noise
 
       sign_in_as(@user) do
-        get :index, month: "#{Time.now.month}", year: "#{Time.now.year}"
+        get :index, month: "#{Time.now.month}", year: "#{Time.now.year}", locale: :th
 
         expect(assigns[:paid_for_month].count).to eq(3) 
         expect(assigns[:total]).to eq(875) 
-        expect(assigns[:average]).to eq(36.46)
+        expect(assigns[:average]).to eq(291.67)
 
         expect(response).to render_template("index")
       end
@@ -87,11 +87,11 @@ RSpec.describe DetailsController, :type => :controller do
       ) 
 
       sign_in_as(@user) do
-        get :index, month: (Time.now - 1.month).month, year: "#{Time.now.year}"
+        get :index, month: (Time.now - 1.month).month, year: "#{Time.now.year}", locale: :th
 
         expect(assigns[:paid_for_month].count).to eq(3) 
         expect(assigns[:total]).to eq(980) 
-        expect(assigns[:average]).to eq(32.67)
+        expect(assigns[:average]).to eq(490)
 
         expect(response).to render_template("index")
       end
@@ -128,11 +128,11 @@ RSpec.describe DetailsController, :type => :controller do
       ) #noise
 
       sign_in_as(@user) do
-        get :index, month: "45", year: "45674ss"
+        get :index, month: "45", year: "45674ss", locale: :th
 
         expect(assigns[:paid_for_month].count).to eq(2) 
         expect(assigns[:total]).to eq(575) 
-        expect(assigns[:average]).to eq(23.96)
+        expect(assigns[:average]).to eq(287.5)
 
         expect(response).to render_template("index")
       end

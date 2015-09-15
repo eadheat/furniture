@@ -29,7 +29,7 @@ RSpec.describe HistoriesController, :type => :controller do
   describe "index" do
     it "render index page" do   
       sign_in_as(@user) do
-        get :index
+        get :index, locale: :th
 
         expect(response).to render_template("index")
       end
@@ -37,9 +37,9 @@ RSpec.describe HistoriesController, :type => :controller do
 
     it "search with year" do 
       sign_in_as(@user) do
-        get :index, year: (Time.now - 1.year).year
+        get :index, year: (Time.now - 1.year).year, locale: :th
 
-        expect(assigns[:year]).to eq("#{(Time.now - 1.year).year}")
+        expect(assigns[:year]).to eq((Time.now - 1.year).year)
         expect(assigns[:total_amount].to_i).to eq(600)
         expect(response).to render_template("index")
       end
