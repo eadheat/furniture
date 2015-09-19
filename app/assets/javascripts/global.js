@@ -43,6 +43,15 @@ Global = {
     });
 
     $(document).on("click", "#submit-contact-btn", Global.sendContact);
+
+    $(document).on('touchstart', 'li.ui-menu-item',
+      function () {
+        if (!window.ontouchstart && !navigator.MaxTouchPoints && !navigator.msMaxTouchPoints) {
+          $(this).trigger("click");
+        }
+      }
+    );
+
   }
 };
 
