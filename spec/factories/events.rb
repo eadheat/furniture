@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :event do
-    from                           { Time.now }
-    to                             { Time.now + 2.days }
+    from                           { Time.current }
+    to                             { Time.current + 2.days }
     description                    { "Description" }
   end
 end

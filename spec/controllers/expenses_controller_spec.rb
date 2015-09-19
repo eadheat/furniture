@@ -15,8 +15,8 @@ RSpec.describe ExpensesController, :type => :controller do
 
     it "render index with tatal money for today" do
       user = FactoryGirl.create(:user)    
-      expense = FactoryGirl.create(:expense, date: Time.now.to_date, amount: 80, detail: "Breakfast", user: user)
-      expense_2 = FactoryGirl.create(:expense, date: Time.now.to_date, amount: 100, detail: "Lunch", user: user)
+      expense = FactoryGirl.create(:expense, date: Time.current.to_date, amount: 80, detail: "Breakfast", user: user)
+      expense_2 = FactoryGirl.create(:expense, date: Time.current.to_date, amount: 100, detail: "Lunch", user: user)
       sign_in_as(user) do
         get :index, locale: :en
 
@@ -29,7 +29,7 @@ RSpec.describe ExpensesController, :type => :controller do
   describe "create" do
     it "create new expense" do
       user = FactoryGirl.create(:user)  
-      date = Time.now  
+      date = Time.current  
       sign_in_as(user) do
         expect {
           post :create,
@@ -54,8 +54,8 @@ RSpec.describe ExpensesController, :type => :controller do
   describe "update" do
     it "update expense" do
       user = FactoryGirl.create(:user)    
-      expense = FactoryGirl.create(:expense, date: (Time.now - 3.days).to_date, detail: "Lunch", amount: 80, credit: false, user: user)
-      date = Time.now
+      expense = FactoryGirl.create(:expense, date: (Time.current - 3.days).to_date, detail: "Lunch", amount: 80, credit: false, user: user)
+      date = Time.current
 
       sign_in_as(user) do
         expect {
@@ -79,9 +79,9 @@ RSpec.describe ExpensesController, :type => :controller do
 
     it "update expense and update total money for today" do
       user = FactoryGirl.create(:user)    
-      expense = FactoryGirl.create(:expense, date: Time.now.to_date, detail: "Lunch", amount: 80, credit: false, user: user)
-      expense_2 = FactoryGirl.create(:expense, date: Time.now.to_date, detail: "Lunch", amount: 80, credit: false, user: user)
-      date = Time.now.to_date
+      expense = FactoryGirl.create(:expense, date: Time.current.to_date, detail: "Lunch", amount: 80, credit: false, user: user)
+      expense_2 = FactoryGirl.create(:expense, date: Time.current.to_date, detail: "Lunch", amount: 80, credit: false, user: user)
+      date = Time.current.to_date
 
       sign_in_as(user) do
         expect {
@@ -108,7 +108,7 @@ RSpec.describe ExpensesController, :type => :controller do
   describe "expense_details" do
     it "get expense details" do
       user = FactoryGirl.create(:user)    
-      expense = FactoryGirl.create(:expense, date: (Time.now - 3.days).to_date, detail: "Lunch", amount: 80, credit: false, user: user)
+      expense = FactoryGirl.create(:expense, date: (Time.current - 3.days).to_date, detail: "Lunch", amount: 80, credit: false, user: user)
 
       sign_in_as(user) do
         get :expense_details, id: expense.id, locale: :en
@@ -129,9 +129,9 @@ RSpec.describe ExpensesController, :type => :controller do
   describe "delete" do
     it "delete expense" do
       user = FactoryGirl.create(:user)    
-      expense = FactoryGirl.create(:expense, date: Time.now.to_date, amount: 80, user: user)
-      expense_2 = FactoryGirl.create(:expense, date: Time.now.to_date, amount: 100, user: user)
-      expense_3 = FactoryGirl.create(:expense, date: Time.now.to_date, amount: 100, user: user)
+      expense = FactoryGirl.create(:expense, date: Time.current.to_date, amount: 80, user: user)
+      expense_2 = FactoryGirl.create(:expense, date: Time.current.to_date, amount: 100, user: user)
+      expense_3 = FactoryGirl.create(:expense, date: Time.current.to_date, amount: 100, user: user)
 
       sign_in_as(user) do
         expect {

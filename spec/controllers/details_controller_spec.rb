@@ -9,7 +9,7 @@ RSpec.describe DetailsController, :type => :controller do
   describe "index" do
     it "render index page" do 
       sign_in_as(@user) do
-        get :index, month: "#{Time.now.month}", year: "#{Time.now.year}", locale: :th
+        get :index, month: "#{Time.current.month}", year: "#{Time.current.year}", locale: :th
 
         expect(response).to render_template("index")
       end
@@ -20,33 +20,33 @@ RSpec.describe DetailsController, :type => :controller do
       allow(Time).to receive(:now).and_return(@time_now)
 
       expense = FactoryGirl.create(:expense, 
-        date: Time.now - 5.days, 
+        date: Time.current - 5.days, 
         detail: "Breakfast", 
         amount: 125, 
         user: @user
       )
       expense_2 = FactoryGirl.create(:expense, 
-        date: Time.now - 7.days, 
+        date: Time.current - 7.days, 
         detail: "Breakfast", 
         amount: 450, 
         user: @user
       )
       expense_3 = FactoryGirl.create(:expense, 
-        date: Time.now - 10.days, 
+        date: Time.current - 10.days, 
         detail: "Breakfast", 
         amount: 300, 
         user: @user
       )
 
       expense_4 = FactoryGirl.create(:expense, 
-        date: Time.now - 1.month, 
+        date: Time.current - 1.month, 
         detail: "Breakfast", 
         amount: 230, 
         user: @user
       ) #noise
 
       sign_in_as(@user) do
-        get :index, month: "#{Time.now.month}", year: "#{Time.now.year}", locale: :th
+        get :index, month: "#{Time.current.month}", year: "#{Time.current.year}", locale: :th
 
         expect(assigns[:paid_for_month].count).to eq(3) 
         expect(assigns[:total]).to eq(875) 
@@ -61,33 +61,33 @@ RSpec.describe DetailsController, :type => :controller do
       allow(Time).to receive(:now).and_return(@time_now)
 
       expense = FactoryGirl.create(:expense, 
-        date: Time.now - 5.days, 
+        date: Time.current - 5.days, 
         detail: "Breakfast", 
         amount: 125, 
         user: @user
       ) #noise
       expense_2 = FactoryGirl.create(:expense, 
-        date: Time.now - 26.days, 
+        date: Time.current - 26.days, 
         detail: "Breakfast", 
         amount: 450, 
         user: @user
       )
       expense_3 = FactoryGirl.create(:expense, 
-        date: Time.now - 26.days, 
+        date: Time.current - 26.days, 
         detail: "Breakfast", 
         amount: 300, 
         user: @user
       )
 
       expense_4 = FactoryGirl.create(:expense, 
-        date: Time.now - 1.month, 
+        date: Time.current - 1.month, 
         detail: "Breakfast", 
         amount: 230, 
         user: @user
       ) 
 
       sign_in_as(@user) do
-        get :index, month: (Time.now - 1.month).month, year: "#{Time.now.year}", locale: :th
+        get :index, month: (Time.current - 1.month).month, year: "#{Time.current.year}", locale: :th
 
         expect(assigns[:paid_for_month].count).to eq(3) 
         expect(assigns[:total]).to eq(980) 
@@ -102,26 +102,26 @@ RSpec.describe DetailsController, :type => :controller do
       allow(Time).to receive(:now).and_return(@time_now)
 
       expense = FactoryGirl.create(:expense, 
-        date: Time.now - 5.days, 
+        date: Time.current - 5.days, 
         detail: "Breakfast", 
         amount: 125, 
         user: @user
       )
       expense_2 = FactoryGirl.create(:expense, 
-        date: Time.now - 7.days, 
+        date: Time.current - 7.days, 
         detail: "Breakfast", 
         amount: 450, 
         user: @user
       )
       expense_3 = FactoryGirl.create(:expense, 
-        date: Time.now - 1.month, 
+        date: Time.current - 1.month, 
         detail: "Breakfast", 
         amount: 300, 
         user: @user
       )
 
       expense_4 = FactoryGirl.create(:expense, 
-        date: Time.now - 1.month, 
+        date: Time.current - 1.month, 
         detail: "Breakfast", 
         amount: 230, 
         user: @user

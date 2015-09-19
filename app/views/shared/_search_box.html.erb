@@ -2,7 +2,7 @@
   <form role="search" id="search-by-year">
     <div class="col-sm-6">
       <label class="col-sm-12 row"><%= t('year') %></label>
-      <%= select_tag "year", options_for_select(@expese_year_list, @year.present? ? @year : Time.now.year), class: "form-control" %>
+      <%= select_tag "year", options_for_select(@expese_year_list, @year.present? ? @year : Time.current.year), class: "form-control" %>
     </div>
   </form>
 </div>

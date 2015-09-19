@@ -14,7 +14,7 @@
         <input 
           class="pay-date form-control required" 
           type="text" 
-          value="<%= Time.now.localtime.strftime('%d.%m.%Y') %>" 
+          value="<%= Time.current.strftime('%d.%m.%Y') %>" 
           name="expense_date"
           placeholder="<%= t('date') %>" />
       </td>

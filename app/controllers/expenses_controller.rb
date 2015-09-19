@@ -91,7 +91,7 @@ class ExpensesController < ApplicationController
   end
 
   def total_money_for_today
-    @current_date_total = current_user.expenses.where("date = ?", Time.now.localtime.to_date).map(&:amount).sum
+    @current_date_total = current_user.expenses.where(:date => Time.current.beginning_of_day..Time.current.end_of_day).map(&:amount).sum
   end
 
 end

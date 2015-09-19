@@ -10,8 +10,8 @@ RSpec.describe EventsController, :type => :controller do
         expect {
           post :add_event,
           event: {
-            from: Time.now,
-            to: Time.now + 2.days,
+            from: Time.current,
+            to: Time.current + 2.days,
             description: "Add test event"
           }, locale: "en"
         }.to change(Event, :count).by(1)
@@ -29,8 +29,8 @@ RSpec.describe EventsController, :type => :controller do
           post :add_event,
           event: {
             id: event.id,
-            from: Time.now,
-            to: Time.now + 2.days,
+            from: Time.current,
+            to: Time.current + 2.days,
             description: "Add test event"
           }, locale: "en"
         }.to change(Event, :count).by(0)

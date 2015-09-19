@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :expense do
-    date                           { Time.now }
+    date                           { Time.current }
     detail                         { "Breakfast" }
     amount                         { 80 }
   end

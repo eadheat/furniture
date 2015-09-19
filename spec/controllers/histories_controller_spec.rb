@@ -5,22 +5,22 @@ RSpec.describe HistoriesController, :type => :controller do
   before(:each) do
     @user = FactoryGirl.create(:user)  
     @expense_last_year = FactoryGirl.create(:expense, 
-      date: Time.now - 1.year,
+      date: Time.current - 1.year,
       amount: 200, 
       user: @user
     )
     @expense_last_year_2 = FactoryGirl.create(:expense, 
-      date: Time.now - 1.year,
+      date: Time.current - 1.year,
       amount: 400, 
       user: @user
     )
     @expense_current_year = FactoryGirl.create(:expense, 
-      date: Time.now, 
+      date: Time.current, 
       amount: 300,
       user: @user
     )
     @expense_current_year_2 = FactoryGirl.create(:expense, 
-      date: Time.now, 
+      date: Time.current, 
       amount: 600,
       user: @user
     )
@@ -37,9 +37,9 @@ RSpec.describe HistoriesController, :type => :controller do
 
     it "search with year" do 
       sign_in_as(@user) do
-        get :index, year: (Time.now - 1.year).year, locale: :th
+        get :index, year: (Time.current - 1.year).year, locale: :th
 
-        expect(assigns[:year]).to eq((Time.now - 1.year).year)
+        expect(assigns[:year]).to eq((Time.current - 1.year).year)
         expect(assigns[:total_amount].to_i).to eq(600)
         expect(response).to render_template("index")
       end
