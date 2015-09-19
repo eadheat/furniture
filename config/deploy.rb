@@ -74,6 +74,10 @@ namespace :deploy do
     end
   end
 
+  task :start do
+    run "cp -r #{release_path}/app/assets/fonts #{release_path}/public/assets"
+  end
+
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
