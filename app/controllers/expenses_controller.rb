@@ -4,7 +4,7 @@ class ExpensesController < ApplicationController
   before_action :load_details
 
   def load_details
-    @expense_details = Expense.all.map(&:detail).uniq.join(",")
+    @expense_details = current_user.expenses.map(&:detail).uniq.join(",")
   end
 
   def index   
@@ -45,7 +45,7 @@ class ExpensesController < ApplicationController
     if expense.save
       total_money_for_today
       render json: {
-        date: expense.date.strftime("%d %B %Y"),
+        date: expense.date.strftime("%d.%m.%Y"),
         detail: expense.detail,
         amount: expense.amount,
         credit: expense.credit ? "<span class='credit'>#{t('credit')}</span>" : t("cash"),
@@ -63,7 +63,7 @@ class ExpensesController < ApplicationController
     expense = current_user.expenses.find(params[:id])
     if expense.present?
       render json: {
-        date: expense.date.strftime("%d %B %Y"),
+        date: expense.date.strftime("%d.%m.%Y"),
         detail: expense.detail,
         amount: expense.amount,
         credit: expense.credit ? "<span class='credit'>#{t('credit')}</span>" : t("cash"),

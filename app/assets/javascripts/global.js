@@ -37,7 +37,9 @@ Global = {
 
     $('.pay-date').datepicker({
       format: "dd.mm.yyyy",
-      autoclose: true
+      autoclose: true,
+      disableTouchKeyboard: true,
+      todayHighlight: true
     });
 
     $(document).on("click", "#submit-contact-btn", Global.sendContact);

@@ -29,4 +29,16 @@
     padding-left: 15px;
     padding-right: 15px;
   }
+
+  li.ui-menu-item {
+    height: 30px;
+  }
+
+  li.ui-menu-item:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+  }
+
+  .ui-menu .ui-menu-item {
+    padding: 5px 1em 3px .4em;
+  }
 }
