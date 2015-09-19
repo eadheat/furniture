@@ -20,6 +20,6 @@ production:
   encoding: "unicode"
   username: postgres
   password: "Bild3Quak!"
-  database: "EXPENSES_production"
+  database: "expenses_production"
   pool: 5
   timeout: 5000
