@@ -15,7 +15,6 @@
 //= require jquery-ui
 //= require bootstrap.min
 //= require moment
-//= require bootstrap-datetimepicker
 //= require slick.min
 //= require fullcalendar/dist/fullcalendar
 //= require bootstrap-datepicker.min

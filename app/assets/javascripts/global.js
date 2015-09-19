@@ -35,8 +35,9 @@ Global = {
       $('#contact-us-form').find("textarea").css("borderColor", "#ccc");
     });
 
-    $('.pay-date').datetimepicker({
-      format: "D.M.YYYY"
+    $('.pay-date').datepicker({
+      format: "dd.mm.yyyy",
+      autoclose: true
     });
 
     $(document).on("click", "#submit-contact-btn", Global.sendContact);
