@@ -33,7 +33,6 @@ Expenses = {
         $(result).insertAfter($(first_row));
         $("#expense-form input:not('.pay-date')").val('');
         $(tr_parent).find("input[name='expense_credit']").attr("checked", false);
-        $("input.expense-detail-autocomplete").focus();
       },
       error: function(){
         $(tr_parent).find("input.required").filter(function() {
