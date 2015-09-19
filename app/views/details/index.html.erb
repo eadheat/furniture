@@ -1,6 +1,6 @@
 <div class="col-sm-12">
   <% if @paid_for_month.present? %>
-    <h4><%= @paid_for_month.last.date.strftime("%B %Y") %></h4>
+    <h4><%= @paid_for_month.last.date.localtime.strftime("%B %Y") %></h4>
   <% end %>
   <table class="table table-hover">
     <thead>

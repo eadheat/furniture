@@ -1,9 +1,9 @@
 <tr>
   <td>
-    <span id="expense-date" class="expense-text-show"><%= expense.date.strftime("%d.%m.%Y") %></span>
+    <span id="expense-date" class="expense-text-show"><%= expense.date.localtime.strftime("%d.%m.%Y") %></span>
     <%= 
       text_field_tag "expense_date", 
-      expense.date.strftime('%d.%m.%Y'),
+      expense.date.localtime.strftime('%d.%m.%Y'),
       placeholder: t('date'),
       class: "pay-date expense-value form-control required" 
     %>

@@ -45,7 +45,7 @@ class ExpensesController < ApplicationController
     if expense.save
       total_money_for_today
       render json: {
-        date: expense.date.strftime("%d.%m.%Y"),
+        date: expense.date.localtime.strftime("%d.%m.%Y"),
         detail: expense.detail,
         amount: expense.amount,
         credit: expense.credit ? "<span class='credit'>#{t('credit')}</span>" : t("cash"),
@@ -63,7 +63,7 @@ class ExpensesController < ApplicationController
     expense = current_user.expenses.find(params[:id])
     if expense.present?
       render json: {
-        date: expense.date.strftime("%d.%m.%Y"),
+        date: expense.date.localtime.strftime("%d.%m.%Y"),
         detail: expense.detail,
         amount: expense.amount,
         credit: expense.credit ? "<span class='credit'>#{t('credit')}</span>" : t("cash"),
@@ -91,7 +91,7 @@ class ExpensesController < ApplicationController
   end
 
   def total_money_for_today
-    @current_date_total = current_user.expenses.where("date = ?", Time.now.to_date).map(&:amount).sum
+    @current_date_total = current_user.expenses.where("date = ?", Time.now.localtime.to_date).map(&:amount).sum
   end
 
 end

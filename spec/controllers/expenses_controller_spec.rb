@@ -115,7 +115,7 @@ RSpec.describe ExpensesController, :type => :controller do
 
         expect(response.body).to eq(
           {
-            date: expense.date.strftime("%d %B"),
+            date: expense.date.localtime.strftime("%d %B"),
             detail: expense.detail,
             amount: expense.amount,
             credit: expense.credit ? "<span class='credit'>Credit</span>" : "Cash",
