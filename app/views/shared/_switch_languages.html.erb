@@ -1,14 +1,12 @@
-<div class="row">
-  <div class="col-xs-12 text-right">
-    <ul id="switch-language">
-      <li>
-        <%= link_to url_for(params.merge({locale: 'th'})) do %>
-          <%= image_tag "th-flag.png", class: "flag" %>
-        <% end %>
-        <%= link_to url_for(params.merge({locale: 'en'})) do %>
-          <%= image_tag "en-flag.png", class: "flag" %>
-        <% end %>
-        </li>
-    </ul>
-  </div>
+<div class="text-right" id="languages-switcher">
+  <ul id="switch-language">
+    <li>
+      <%= link_to url_for(params.merge({locale: 'th'})) do %>
+        <%= image_tag "th-flag.png", class: "flag" %>
+      <% end %>
+      <%= link_to url_for(params.merge({locale: 'en'})) do %>
+        <%= image_tag "en-flag.png", class: "flag" %>
+      <% end %>
+      </li>
+  </ul>
 </div>

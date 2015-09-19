@@ -35,11 +35,11 @@ class ApplicationController < ActionController::Base
     Time.now.localtime.day
   end
 
-  def current_month
+  def this_month
     Time.now.localtime.month
   end
 
-  def current_year
+  def this_year
     Time.now.localtime.year
   end
 end

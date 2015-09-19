@@ -17,11 +17,11 @@ class DetailsController < ApplicationController
 
   private
   def for_month(params)
-    (1..12).include?(params[:month].to_i) ? params[:month].to_i : current_month
+    (1..12).include?(params[:month].to_i) ? params[:month].to_i : this_month
   end
 
   def for_year(params)
-    (1.."#{current_year}".to_i).include?(params[:year].to_i) ? params[:year].to_i : current_year
+    (1.."#{this_year}".to_i).include?(params[:year].to_i) ? params[:year].to_i : this_year
   end
 
   def get_days_in_month

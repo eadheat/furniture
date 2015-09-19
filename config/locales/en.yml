@@ -31,7 +31,7 @@ en:
   pay_with: "Pay with"
   amount_thb: "Amount (THB)"
   total: "Total"
-  average: "Average %{days} day(s)"
+  average: "Average"
   thb: "THB"
   details: "Details"
   year: "Year"
@@ -56,6 +56,8 @@ en:
   current_password: "Current password"
   update: "Update"
   characters_minimum: "(%{length} characters minimum)"
+  total_of_this_month: "Total of this month: "
+  average_of_this_month: "Average of this month: "
 
   activerecord:
     errors:

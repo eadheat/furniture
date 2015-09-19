@@ -3,7 +3,7 @@ class HistoriesController < ApplicationController
 
   def index 
     @expese_year_list = current_user.expenses.map(&:date).map(&:year).uniq
-    @year = (1.."#{current_year}".to_i).include?(params[:year].to_i) ? params[:year].to_i : current_year
+    @year = (1.."#{this_year}".to_i).include?(params[:year].to_i) ? params[:year].to_i : this_year
 
     @months = {}
     @total_amount = 0

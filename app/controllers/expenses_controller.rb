@@ -50,7 +50,9 @@ class ExpensesController < ApplicationController
         amount: expense.amount,
         credit: expense.credit ? "<span class='credit'>#{t('credit')}</span>" : t("cash"),
         is_credit: expense.credit,
-        tatol_for_today: @current_date_total
+        total_for_today: @current_date_total,
+        total_of_this_month: current_user.total_of_this_month,
+        average_of_this_month: current_user.average_of_this_month
       }
     else
       head(:forbidden)
@@ -75,7 +77,12 @@ class ExpensesController < ApplicationController
   def destroy
     current_user.expenses.find(params[:id]).destroy
     total_money_for_today
-    render json: {success: true, tatol_for_today: @current_date_total}
+    render json: {
+      success: true, 
+      total_for_today: @current_date_total,
+      total_of_this_month: current_user.total_of_this_month,
+      average_of_this_month: current_user.average_of_this_month
+    }
   end
 
   private

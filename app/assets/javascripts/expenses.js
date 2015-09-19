@@ -23,6 +23,12 @@ Expenses = {
         var paid_for_today = $(result).attr("money-for-today");
         $("#total_paid_money_for_today").text(paid_for_today);
 
+        var total_of_this_month = $(result).attr("total-of-this-month");
+        $("#total_of_this_month").text(total_of_this_month);
+
+        var average_of_this_month = $(result).attr("average-of-this-month");
+        $("#average_of_this_month").text(average_of_this_month);
+
         var first_row = $("table#pay-list").find("tr#expense-form");          
         $(result).insertAfter($(first_row));
         $("#expense-form input:not('.pay-date')").val('');
@@ -61,7 +67,9 @@ Expenses = {
       dataType: 'json',
       success: function(result) {
         $(obj).parents("tr").remove();
-        $("#total_paid_money_for_today").text(result.tatol_for_today);
+        $("#total_paid_money_for_today").text(result.total_for_today);
+        $("#total_of_this_month").text(result.total_of_this_month);
+        $("#average_of_this_month").text(result.average_of_this_month);
       },
       timeout: 10000,
       type: "delete",
@@ -139,7 +147,10 @@ Expenses = {
       },
       dataType: 'json',
       success: function(result) {        
-        $("#total_paid_money_for_today").text(result.tatol_for_today);
+        $("#total_paid_money_for_today").text(result.total_for_today);
+        $("#total_of_this_month").text(result.total_of_this_month);
+        $("#average_of_this_month").text(result.average_of_this_month);
+        
         Expenses.updateExpenseTextDetails(result, tr_parent);
         Expenses.updateExpenseDetails(result, tr_parent);
 

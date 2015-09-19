@@ -31,7 +31,7 @@ th:
   pay_with: "จ่ายด้วย"
   amount_thb: "จำนวนเงิน (บาท)"
   total: "รวม"
-  average: "เฉลี่ย %{days} วัน"
+  average: "เฉลี่ย`"
   thb: "บาท"
   details: "ดูรายละเอียด"
   year: "ปี"
@@ -56,6 +56,8 @@ th:
   current_password: "รหัสผ่านปัจจุบัน"
   update: "บันทึก"
   characters_minimum: "(อย่างน้อย %{length} ตัวอักษร)"
+  total_of_this_month: "รวมทั้งหมดของเดือนนี้: "
+  average_of_this_month: "เฉลี่ยทั้งหมดของเดือนนี้: "
 
   activerecord:
     errors:

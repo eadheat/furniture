@@ -28,4 +28,30 @@ class User < ActiveRecord::Base
     self.name.present? ? self.name : self.email
   end
 
+  def total_of_this_month
+    paid_for_month = self.expenses.where('extract(year from date) = ?', Time.now.localtime.year)
+    paid_for_month = paid_for_month.where('extract(month from date) = ?', Time.now.localtime.month)
+    paid_for_month = paid_for_month.order("date desc, created_at desc") 
+
+    return paid_for_month.map(&:amount).sum
+  end
+
+  def average_of_this_month
+    paid_for_month = self.expenses.where('extract(year from date) = ?', Time.now.localtime.year)
+    paid_for_month = paid_for_month.where('extract(month from date) = ?', Time.now.localtime.month)
+    paid_for_month = paid_for_month.order("date desc, created_at desc") 
+
+    days_in_month = User.get_days_in_month(paid_for_month)
+    total = paid_for_month.map(&:amount).sum
+    return User.get_average(days_in_month, total)
+  end
+
+  def self.get_days_in_month(paid_for_month)
+    paid_for_month.map(&:date).map(&:to_date).uniq.size
+  end
+
+  def self.get_average(days_in_month, total)
+    (days_in_month > 0) ? (total / days_in_month).round(2) : 0
+  end
+
 end

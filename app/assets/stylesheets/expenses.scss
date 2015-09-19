@@ -28,6 +28,9 @@ table td.edit-action, td.delete-action {
   color: white;
 }
 
-#total_paid_money_for_today {
-  color: #009999;
+#summaries-of-this-month {
+  border: 1px solid #ccc;
+  display: inline-block;
+  margin-left: 15px;
+  padding: 15px;
 }
