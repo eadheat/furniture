@@ -18,8 +18,8 @@ production:
   min_messages: "WARNING"
   host: "localhost"
   encoding: "unicode"
-  username: <%= ENV['database_user'] %>
-  password: <%= ENV['database_password'] %>
+  username: postgres
+  password: "Bild3Quak!"
   database: "EXPENSES_production"
   pool: 5
   timeout: 5000
