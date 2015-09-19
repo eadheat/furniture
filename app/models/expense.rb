@@ -8,4 +8,8 @@ class Expense < ActiveRecord::Base
   def today
     self.date.to_date.to_s
   end
+
+  def date
+    read_attribute(:date).to_time.localtime
+  end
 end
