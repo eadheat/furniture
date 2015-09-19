@@ -12,7 +12,7 @@
  *
  *= require_self
  *= require bootstrap.min
- *= require font-awesome/css/font-awesome.min
+ *= require font-awesome/css/font-awesome
  *= require jquery-ui
  *= require slick
  *= require slick-theme
