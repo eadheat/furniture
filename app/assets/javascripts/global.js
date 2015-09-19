@@ -43,10 +43,6 @@ Global = {
     });
 
     $(document).on("click", "#submit-contact-btn", Global.sendContact);
-
-    $('li.ui-menu-item').on('touchstart',function(){
-      $(this).off('mouseenter,mouseleave');
-    });
   }
 };
 
