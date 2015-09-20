@@ -28,6 +28,10 @@ Global = {
       url: "/th/contacts/send_contact"
     });
   },
+  is_touch_device: function() {
+    return 'ontouchstart' in window // works on most browsers 
+      || 'onmsgesturechange' in window; // works on ie10
+  },
   init: function(){
     $('#myContactModal').on('hidden.bs.modal', function (e) {
       $('#contact-us-form')[0].reset();
@@ -52,17 +56,31 @@ Global = {
       }
     );
 
-    //Check to see if the window is top if not then display button
-    $(window).scroll(function(){
-      if ($(this).scrollTop() > 100) {
-        $('.scrollToTop').fadeIn();
-      } else {
-        $('.scrollToTop').fadeOut();
-      }
-    });
+    if (Global.is_touch_device()){
+      $('html, body').bind('touchmove',function(e){
+        var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+        var elm = $(this).offset();
+        var x = touch.pageX - elm.left;
+        var y = touch.pageY - elm.top;
+        if(x < $(this).width() && x > 0){
+          if(y < $(this).height() && y > 0){
+            $('.scrollToTop').fadeIn();
+          }
+        }
+      });
+    }else{
+      //Check to see if the window is top if not then display button
+      $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+          $('.scrollToTop').fadeIn();
+        } else {
+          $('.scrollToTop').fadeOut();
+        }
+      });
+    }
     
     //Click event to scroll to top
-    $('.scrollToTop').click(function(){
+    $(document).on("click", ".scrollToTop", function(){
       $('html, body').animate({scrollTop : 0},400);
       return false;
     });
