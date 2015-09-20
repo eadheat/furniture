@@ -81,7 +81,11 @@ Global = {
     
     //Click event to scroll to top
     $(document).on("click", ".scrollToTop", function(){
-      $('html, body').animate({scrollTop : 0},400);
+      if (Global.is_touch_device()){
+        $("#top-navigation").attr("tabindex",-1).focus();
+      }else{
+        $('html, body').animate({scrollTop : 0},400);
+      }
       return false;
     });
 
