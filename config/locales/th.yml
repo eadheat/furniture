@@ -57,7 +57,7 @@ th:
   update: "บันทึก"
   characters_minimum: "(อย่างน้อย %{length} ตัวอักษร)"
   total_of_this_month: "รวมทั้งหมดของเดือนนี้: "
-  average_of_this_month: "เฉลี่ยทั้งหมดของเดือนนี้: "
+  average_of_this_month: "เฉลี่ยต่อวันของเดือนนี้: "
 
   activerecord:
     errors:
