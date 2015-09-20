@@ -161,3 +161,17 @@ textarea {
 #languages-switcher {
   float: right;
 }
+
+.scrollToTop {
+  display:none;
+  position: fixed;
+  right: 0;
+  bottom: 60px;
+  cursor: pointer;
+  background-color: gray;
+  padding: 10px;
+}
+
+.scrollToTop:hover{
+  text-decoration:none;
+}
