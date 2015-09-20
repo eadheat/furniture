@@ -46,8 +46,16 @@
     margin-right: 15px;
   }
 
-}
+  .scrollToTop {
+    bottom: 10px;
+  }
 
-.scrollToTop-Mobile {
-  bottom: 10px;
+  #expense-date, #expense-detail, #expense-amount {
+    font-weight: bold;
+  }
+
+  #expense-amount {
+    color: blue;
+  }
+
 }
