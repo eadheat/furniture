@@ -4,24 +4,12 @@ table td.payment-check-box {
   vertical-align: middle !important;
 }
 
-.remove-expense {
-  color: $red;
-}
-
 .expense-value {
   display: none;
 }
 
-table td.cancel-or-remove-expense {
-  vertical-align: middle !important;
-}
-
 table th.menu-actions {
   width: 150px;
-}
-
-table td.edit-action, td.delete-action {
-  width: 70px;
 }
 
 .white-text {
@@ -38,4 +26,24 @@ table td.edit-action, td.delete-action {
 
 #expense-detail {
   font-weight: bold;
+}
+
+.edit-action {
+  .edit-expense {
+    padding-right: 15px;
+    border-right: 1px solid;
+  }
+  .remove-expense {
+    padding-left: 20px;
+  }
+
+  .edit-expense, .remove-expense {
+    font-weight: bold;
+  }
+
+  .edit-expense:hover, .edit-expense:active,
+  .remove-expense:hover, .remove-expense:active {
+    font-weight: normal;
+  }
+
 }

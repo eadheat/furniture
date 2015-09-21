@@ -35,20 +35,19 @@
     </span>
     <%= check_box_tag "expense_credit", nil, @expense.credit, class: "expense-value" %>
   </td>
-  <td>
+  <td class="edit-action">
     <span class="expense-text-show edit-expense pointer" id="<%= @expense.id %>">
       <%= t('edit') %>
     </span>
-    <button class="expense-value update-expense-btn btn btn-default" id="<%= @expense.id %>">
-      <%= t('save') %>
-    </button>  
-  </td>
-  <td class="cancel-or-remove-expense">
     <span class="remove-expense pointer expense-text-show" id="<%= @expense.id %>">
-      <i class="fa fa-times fa-lg"></i>
+      <%= t('delete') %>
     </span>
-    <span class="cancel-update-expense expense-value pointer" id="<%= @expense.id %>">
+
+    <button type="button" class="expense-value update-expense-btn btn btn-default" id="<%= @expense.id %>">
+      <%= t('save') %>
+    </button> 
+    <button type="button" class="cancel-update-expense expense-value btn btn-default" id="<%= @expense.id %>">
       <%= t('cancel') %>
-    </span>
+    </button>
   </td>
 </tr>

@@ -3,13 +3,9 @@
     overflow-x: hidden;
   }
 
-  table.table tr td, table.table tr th {
+  table#pay-list tr td, table.table tr th {
     width: 100%;
     display: block;
-  }
-
-  table.table tr:not(:last-child) {
-    border-bottom: 1px solid #DDD;
   }
 
   .row {
@@ -56,6 +52,10 @@
 
   #expense-amount {
     color: blue;
+  }
+
+  .edit-action {
+    text-align: right;
   }
 
 }

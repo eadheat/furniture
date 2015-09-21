@@ -1,6 +1,6 @@
 <tr>
   <td><%= expense.date.strftime("%d %B  %Y") %></td>
   <td><%= expense.detail %></td>
-  <td><%= expense.credit ? "<span class='credit'>Credit</span>".html_safe : "Cash" %></td>
+  <td><%= expense.credit ? "<span class='credit'>#{t('credit')}</span>".html_safe : t("cash") %></td>
   <td><%= expense.amount %></td>
 </tr>

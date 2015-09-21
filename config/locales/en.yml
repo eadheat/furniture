@@ -58,6 +58,7 @@ en:
   characters_minimum: "(%{length} characters minimum)"
   total_of_this_month: "Total of this month: "
   average_of_this_month: "Average of this month: "
+  delete: "Delete"
 
   activerecord:
     errors:
