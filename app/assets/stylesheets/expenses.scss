@@ -41,9 +41,8 @@ table th.menu-actions {
     font-weight: bold;
   }
 
-  .edit-expense:hover, .edit-expense:active,
-  .remove-expense:hover, .remove-expense:active {
-    font-weight: normal;
-  }
+}
 
+.expense-value-pay-by-credit {
+  display: none;
 }

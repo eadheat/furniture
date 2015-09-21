@@ -33,21 +33,13 @@
     <span id="expense-credit" class="expense-text-show">
       <%= @expense.credit ? "<span class='credit'>#{t('credit')}</span>".html_safe : t("cash") %>
     </span>
-    <%= check_box_tag "expense_credit", nil, @expense.credit, class: "expense-value" %>
+
+    <span class="expense-value">
+      <%= check_box_tag "expense_credit", nil, @expense.credit, class: "expense-value" %>
+      <div class="visible-xs pay_by_credit__visible-xs"><%= t('pay_by_credit') %></div>
+    </span>
   </td>
   <td class="edit-action">
-    <span class="expense-text-show edit-expense pointer" id="<%= @expense.id %>">
-      <%= t('edit') %>
-    </span>
-    <span class="remove-expense pointer expense-text-show" id="<%= @expense.id %>">
-      <%= t('delete') %>
-    </span>
-
-    <button type="button" class="expense-value update-expense-btn btn btn-default" id="<%= @expense.id %>">
-      <%= t('save') %>
-    </button> 
-    <button type="button" class="cancel-update-expense expense-value btn btn-default" id="<%= @expense.id %>">
-      <%= t('cancel') %>
-    </button>
+    <%= render partial: "edit_actions", locals:  {expense: @expense} %>
   </td>
 </tr>
