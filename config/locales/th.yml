@@ -12,7 +12,7 @@ th:
   summary: "สรุปยอด"
   date: "วันที่"
   detail: "รายการ"
-  price: "ราคา (บาท)"
+  price: "ราคา"
   pay_by_credit: "จ่ายด้วยบัตรเครดิต"
   add: "เพิ่ม"
   amount: "ราคา"
@@ -29,13 +29,13 @@ th:
   send: "ส่งข้อความ"
   close: "ปิด"
   pay_with: "จ่ายด้วย"
-  amount_thb: "จำนวนเงิน (บาท)"
+  amount_thb: "จำนวนเงิน"
   total: "รวม"
   average: "เฉลี่ย`"
   thb: "บาท"
   details: "ดูรายละเอียด"
   year: "ปี"
-  total_amount: "รวม (บาท)"
+  total_amount: "รวม"
   actions: "จัดการ"
   paid_for: "รายจ่ายสำหรับปี "
   month: "เดือน"
@@ -82,3 +82,17 @@ th:
               blank: "ไม่สามารถเป็นค่าว่าง"
             description:
               blank: "ไม่สามารถเป็นค่าว่าง"
+
+  month_names:
+    month_1: มกราคม
+    month_2: กุมภาพันธ์
+    month_3: มีนาคม
+    month_4: เมษายน
+    month_5: พฤษภาคม
+    month_6: มิถุนายน
+    month_7: กรกฎาคม
+    month_8: สิงหาคม
+    month_9: กันยายน
+    month_10: ตุลาคม
+    month_11: พฤศจิกายน
+    month_12: ธันวาคม

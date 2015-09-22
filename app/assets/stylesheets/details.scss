@@ -1,3 +1,7 @@
 table tr:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
+
+table tr th:first-child, table tr td:first-child {
+  width: 40px;
+}

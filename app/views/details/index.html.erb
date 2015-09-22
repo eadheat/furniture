@@ -14,11 +14,11 @@
 </div>
 <div class="col-sm-12">
   <% if @paid_for_month.present? %>
-    <h4><%= @paid_for_month.last.date.strftime("%B %Y") %></h4>
+    <h4><%= t("month_names.month_#{@paid_for_month.last.date.month}") + " #{@paid_for_month.last.date.year}" %></h4>
   <% end %>
   <table class="table table-striped">
     <thead>
-      <tr class="bg-light-green hidden-xs">
+      <tr class="bg-light-green">
         <th><%= t('date') %></th>
         <th><%= t('detail') %></th>
         <th><%= t('pay_with') %></th>

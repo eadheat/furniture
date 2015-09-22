@@ -1,5 +1,5 @@
 <tr>
-  <td><%= date.strftime("%B") %></td>
+  <td><%= t("month_names.month_#{date.month}") %></td>
   <td><%= amount %></td>
   <td>
     <%= link_to t("details"), details_path(month: date.month, year: @year) %>
