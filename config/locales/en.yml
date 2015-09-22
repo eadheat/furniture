@@ -59,6 +59,7 @@ en:
   total_of_this_month: "Total of this month: "
   average_of_this_month: "Average of this month: "
   delete: "Delete"
+  days_in_month: "Days amount you enter of this month: "
 
   activerecord:
     errors:

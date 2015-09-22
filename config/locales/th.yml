@@ -59,6 +59,7 @@ th:
   total_of_this_month: "รวมทั้งหมดของเดือนนี้: "
   average_of_this_month: "เฉลี่ยต่อวันของเดือนนี้: "
   delete: "ลบ"
+  days_in_month: "จำนวนวันที่บันทึกในเดือนนี้: "
 
   activerecord:
     errors:

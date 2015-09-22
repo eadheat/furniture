@@ -1,5 +1,5 @@
 <%= hidden_field_tag "details", @expense_details, id: "expense-details-autocomplete" %>
-<div id="summaries-of-this-month">
+<div id="summaries-of-this-month" class="form-group">
   <div>
     <span><%= t('total_paid_money_for_today') %></span>
     <span class="bold" id="total_paid_money_for_today"><%= @current_date_total %></span>

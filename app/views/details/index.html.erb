@@ -1,3 +1,17 @@
+<div id="summaries-of-this-month">
+  <div>
+    <span><%= t('total_of_this_month') %></span>
+    <span class="bold" id="total_of_month"><%= @total %></span>
+  </div>
+  <div>
+    <span><%= t('average_of_this_month') %></span>
+    <span class="bold" id="average_of_month"><%= @average %></span>
+  </div>
+  <div>
+    <span><%= t('days_in_month') %></span>
+    <span class="bold" id="average_of_month"><%= @days_in_month %></span>
+  </div>
+</div>
 <div class="col-sm-12">
   <% if @paid_for_month.present? %>
     <h4><%= @paid_for_month.last.date.strftime("%B %Y") %></h4>
@@ -13,14 +27,6 @@
     </thead>
     <tbody>
       <%= render partial: "day_list", collection: @paid_for_month, as: :expense %>
-      <tr class="add-border-top">
-        <td colspan="1"><b><%= t('total') %></b></td>
-        <td colspan="3"><b><%= @total %> <%= t("thb") %></b></td>
-      </tr>
-      <tr>
-        <td colspan="1"><b><%= t('average') %></b></td>
-        <td colspan="3"><b><%= @average %> <%= t("thb") %></b></td>
-      </tr>
     </tbody>
   </table>
 </div>
