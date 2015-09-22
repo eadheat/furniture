@@ -3,9 +3,22 @@
     overflow-x: hidden;
   }
 
+  table#pay-list tr {
+    border: 1px dashed #ccc;
+  }
+
   table#pay-list tr td, table.table tr th {
     width: 100%;
     display: block;
+  }
+
+  table#pay-list tr td.payment-check-box, td.edit-action {
+    width: auto !important;
+    display: inline-block !important;
+  }
+
+  table#pay-list tr td.edit-action {
+    float: right;
   }
 
   .row {
@@ -43,7 +56,8 @@
   }
 
   .scrollToTop {
-    bottom: 10px;
+    bottom: 0;
+    padding: 5px 7px;;
   }
 
   #expense-date, #expense-detail, #expense-amount {
