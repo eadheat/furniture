@@ -1,26 +1,31 @@
 <%= render partial: "shared/search_box" %>
-
+<br>
+<br>
+<br>
 <div class="col-sm-12">
-  <br>
-  <div>
-    <div><h4><%= t('paid_for') %><%= @year %></h4></div>
-    <table class="table table-striped">
-      <thead>
-        <tr class="bg-light-green">
-          <th><%= t('month') %></th>
-          <th><%= t('total_amount') %></th>
-          <th><%= t('actions') %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @months.each do |month, amount| %>
-          <%= render partial: "month_list", locals: { date: month.to_date, amount: amount } %>
-        <% end %>
-        <tr class="add-border-top">
-          <td><b><%= t('summary') %></b></td>
-          <td colspan="2"><b><%= @total_amount %></b></td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+      <a href="#my_expense_tab" aria-controls="my_expense_tab" role="tab" data-toggle="tab">My Expense</a>
+    </li>
+    <li role="presentation">
+      <a href="#other_expense_tab" aria-controls="other_expense_tab" role="tab" data-toggle="tab">Other Expense</a>
+    </li>
+    <li role="presentation">
+      <a href="#all_expense_tab" aria-controls="all_expense_tab" role="tab" data-toggle="tab">All Expense</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="my_expense_tab">
+      <%= render partial: "expense_tab", locals: {expenses: @my_expenses, total: @my_expenses_total_amount, other: nil} %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="other_expense_tab">
+      <%= render partial: "expense_tab", locals: {expenses: @other_expenses, total: @other_expenses_total_amount, other: "true"} %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="all_expense_tab">
+      <%= render partial: "expense_tab", locals: {expenses: @all_expenses, total: @total_amount, other: "all"} %>
+    </div>
   </div>
 </div>

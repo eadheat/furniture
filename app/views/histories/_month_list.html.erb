@@ -1,11 +1,11 @@
 <tr>
-  <td><%= t("month_names.month_#{date.month}") %></td>
+  <td><%= t("month_names.month_#{month}") %></td>
   <td><%= amount %></td>
   <td>
-    <% if params[:other_expense].present? %>
-      <%= link_to t("details"), details_path(month: date.month, year: @year, other_expense: true) %>
+    <% if other.present? %>
+      <%= link_to t("details"), details_path(month: month, year: @year, other_expense: other) %>
     <% else %>
-      <%= link_to t("details"), details_path(month: date.month, year: @year) %>
+      <%= link_to t("details"), details_path(month: month, year: @year) %>
     <% end %>
   </td>
 </tr>

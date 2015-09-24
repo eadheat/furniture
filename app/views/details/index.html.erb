@@ -13,6 +13,7 @@
   </div>
 </div>
 <div class="col-sm-12">
+  <h3><%= params[:other_expense].present? ? t('summary_other_expenses') : t('summary_expenses') %></h3>
   <% if @paid_for_month.present? %>
     <h4><%= t("month_names.month_#{@paid_for_month.last.date.month}") + " #{@paid_for_month.last.date.year}" %></h4>
   <% end %>
@@ -21,7 +22,6 @@
       <tr class="bg-light-green">
         <th><%= t('date') %></th>
         <th><%= t('detail') %></th>
-        <th><%= t('pay_with') %></th>
         <th><%= t('amount_thb') %></th>
       </tr>
     </thead>

@@ -1,6 +1,10 @@
 class DetailsController < ApplicationController
   def index
-    my_expenses = params[:other_expense].present? ? current_user.expenses.other_expenses : current_user.expenses.my_expenses
+    if params[:other_expense].present?
+      my_expenses = params[:other_expense] == "all" ? current_user.expenses : current_user.expenses.other_expenses
+    else
+      my_expenses = current_user.expenses.my_expenses
+    end
     @expese_year_list = my_expenses.map(&:date).map(&:year).uniq
     
     @month = for_month(params)
