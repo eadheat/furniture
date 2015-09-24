@@ -80,4 +80,20 @@
     text-align: right;
   }
 
+  .nav.nav-tabs li {
+    width: 100%;
+  }
+
+  .nav-tabs > li > a {
+    margin-right: 0;
+  }
+
+  .nav.nav-tabs li:last-child {
+    border-bottom: 1px solid white;
+  }
+
+  .nav.nav-tabs {
+    margin-top: 0;
+  }
+
 }

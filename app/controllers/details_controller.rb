@@ -18,6 +18,8 @@ class DetailsController < ApplicationController
 
     @total = @paid_for_month.map(&:amount).sum
     @average = get_average # get average per days count to add to the system
+
+    render "index", layout: false
   end
 
   private

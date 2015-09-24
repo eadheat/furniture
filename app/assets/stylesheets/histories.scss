@@ -7,3 +7,13 @@ table tr:not(:last-child) {
   background-color: #009999;
   border: 1px solid #009999;
 }
+
+#summary-details-of-this-month {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 10px 15px;
+}
+
+.nav.nav-tabs {
+  margin-top: 30px;
+}

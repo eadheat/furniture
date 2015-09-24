@@ -12,6 +12,7 @@ th:
   summary: "สรุปยอด"
   summary_expenses: "สรุปยอด (บันทึกประจำวัน)"
   summary_other_expenses: "สรุปยอด (ค่าใช้จ่ายอื่นๆ)"
+  all_summary_expenses: "สรุปยอดรวมทั้งหมด"
   date: "วันที่"
   detail: "รายการ"
   price: "ราคา"

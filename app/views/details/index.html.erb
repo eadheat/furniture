@@ -1,32 +1,47 @@
-<div id="summaries-of-this-month">
-  <div>
-    <span><%= t('total_of_this_month') %></span>
-    <span class="bold" id="total_of_month"><%= @total %></span>
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  
+  <h4>
+    <% if params[:other_expense].present? %>
+      <%= params[:other_expense] == "all" ? t('all_summary_expenses') : t('summary_other_expenses') %>
+    <% else %>
+      <%= t('summary_expenses') %>
+    <% end %>
+  </h4>
+</div>
+<div class="modal-body">
+  <div id="summary-details-of-this-month">
+    <div>
+      <span><%= t('total_of_this_month') %></span>
+      <span class="bold" id="total_of_month"><%= @total %></span>
+    </div>
+    <div>
+      <span><%= t('average_of_this_month') %></span>
+      <span class="bold" id="average_of_month"><%= @average %></span>
+    </div>
+    <div>
+      <span><%= t('days_in_month') %></span>
+      <span class="bold" id="average_of_month"><%= @days_in_month %></span>
+    </div>
   </div>
   <div>
-    <span><%= t('average_of_this_month') %></span>
-    <span class="bold" id="average_of_month"><%= @average %></span>
-  </div>
-  <div>
-    <span><%= t('days_in_month') %></span>
-    <span class="bold" id="average_of_month"><%= @days_in_month %></span>
+    <% if @paid_for_month.present? %>
+      <h4><%= t("month_names.month_#{@paid_for_month.last.date.month}") + " #{@paid_for_month.last.date.year}" %></h4>
+    <% end %>
+    <table class="table table-striped">
+      <thead>
+        <tr class="bg-light-green">
+          <th><%= t('date') %></th>
+          <th><%= t('detail') %></th>
+          <th><%= t('amount_thb') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "day_list", collection: @paid_for_month, as: :expense %>
+      </tbody>
+    </table>
   </div>
 </div>
-<div class="col-sm-12">
-  <h3><%= params[:other_expense].present? ? t('summary_other_expenses') : t('summary_expenses') %></h3>
-  <% if @paid_for_month.present? %>
-    <h4><%= t("month_names.month_#{@paid_for_month.last.date.month}") + " #{@paid_for_month.last.date.year}" %></h4>
-  <% end %>
-  <table class="table table-striped">
-    <thead>
-      <tr class="bg-light-green">
-        <th><%= t('date') %></th>
-        <th><%= t('detail') %></th>
-        <th><%= t('amount_thb') %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render partial: "day_list", collection: @paid_for_month, as: :expense %>
-    </tbody>
-  </table>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div>

@@ -12,6 +12,7 @@ en:
   summary: "Summary"
   summary_expenses: "Expense Summary"
   summary_other_expenses: "Other Expense Summary"
+  all_summary_expenses: "All Expense Summary"
   date: "DATE"
   detail: "Detail"
   price: "Price (THB)"

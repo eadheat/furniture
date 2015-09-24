@@ -3,9 +3,17 @@
   <td><%= amount %></td>
   <td>
     <% if other.present? %>
-      <%= link_to t("details"), details_path(month: month, year: @year, other_expense: other) %>
+      <%= link_to t("details"), 
+          details_path(month: month, year: @year, other_expense: other), 
+          "data-toggle": "modal",
+          "data-target": "#my_summary_details"
+      %>
     <% else %>
-      <%= link_to t("details"), details_path(month: month, year: @year) %>
+      <%= link_to t("details"), 
+          details_path(month: month, year: @year),
+          "data-toggle": "modal",
+          "data-target": "#my_summary_details"
+      %>
     <% end %>
   </td>
 </tr>

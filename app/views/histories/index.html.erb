@@ -1,18 +1,22 @@
 <%= render partial: "shared/search_box" %>
-<br>
-<br>
-<br>
+
 <div class="col-sm-12">
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
-      <a href="#my_expense_tab" aria-controls="my_expense_tab" role="tab" data-toggle="tab">My Expense</a>
+      <a href="#my_expense_tab" aria-controls="my_expense_tab" role="tab" data-toggle="tab">
+        <%= t('summary_expenses') %>
+      </a>
     </li>
     <li role="presentation">
-      <a href="#other_expense_tab" aria-controls="other_expense_tab" role="tab" data-toggle="tab">Other Expense</a>
+      <a href="#other_expense_tab" aria-controls="other_expense_tab" role="tab" data-toggle="tab">
+        <%= t('summary_other_expenses') %>
+      </a>
     </li>
     <li role="presentation">
-      <a href="#all_expense_tab" aria-controls="all_expense_tab" role="tab" data-toggle="tab">All Expense</a>
+      <a href="#all_expense_tab" aria-controls="all_expense_tab" role="tab" data-toggle="tab">
+        <%= t('all_summary_expenses') %>
+      </a>
     </li>
   </ul>
 
@@ -26,6 +30,14 @@
     </div>
     <div role="tabpanel" class="tab-pane" id="all_expense_tab">
       <%= render partial: "expense_tab", locals: {expenses: @all_expenses, total: @total_amount, other: "all"} %>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="my_summary_details" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
     </div>
   </div>
 </div>
