@@ -63,15 +63,14 @@ RSpec.describe ExpensesController, :type => :controller do
           expense: {
             date: expense.date,
             detail: "Test",
-            amount: 100,
-            credit: "true"
+            amount: 100
           }, locale: :en
         }.to change(Expense, :count).by(0)
 
         expense.reload
         expect(expense.detail).to eq("Test")
         expect(expense.amount).to eq(100)
-        expect(expense.credit).to eq(true)
+        expect(expense.credit).to eq(false)
 
         expect(assigns[:current_date_total]).to eq(0)
       end
@@ -89,8 +88,7 @@ RSpec.describe ExpensesController, :type => :controller do
           expense: {
             date: date,
             detail: "Test",
-            amount: 100,
-            credit: "true"
+            amount: 100
           }, locale: :en
         }.to change(Expense, :count).by(0)
 
@@ -98,7 +96,7 @@ RSpec.describe ExpensesController, :type => :controller do
         expect(user.expenses.first.date.to_date).to eq(date.to_date)
         expect(expense.detail).to eq("Test")
         expect(expense.amount).to eq(100)
-        expect(expense.credit).to eq(true)
+        expect(expense.credit).to eq(false)
 
         expect(assigns[:current_date_total]).to eq(180)
       end
@@ -115,11 +113,9 @@ RSpec.describe ExpensesController, :type => :controller do
 
         expect(response.body).to eq(
           {
-            date: expense.date.strftime("%d %B"),
+            date: expense.date.strftime("%d.%m.%Y"),
             detail: expense.detail,
-            amount: expense.amount,
-            credit: expense.credit ? "<span class='credit'>Credit</span>" : "Cash",
-            is_credit: false
+            amount: expense.amount
           }.to_json
         )
       end
