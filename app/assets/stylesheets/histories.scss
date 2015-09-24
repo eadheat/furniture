@@ -17,3 +17,7 @@ table tr:not(:last-child) {
 .nav.nav-tabs {
   margin-top: 30px;
 }
+
+.btn-default:hover .btn-default:active {
+  background-color: #e6e6e6;
+}
