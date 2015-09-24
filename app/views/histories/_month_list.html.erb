@@ -2,6 +2,10 @@
   <td><%= t("month_names.month_#{date.month}") %></td>
   <td><%= amount %></td>
   <td>
-    <%= link_to t("details"), details_path(month: date.month, year: @year) %>
+    <% if params[:other_expense].present? %>
+      <%= link_to t("details"), details_path(month: date.month, year: @year, other_expense: true) %>
+    <% else %>
+      <%= link_to t("details"), details_path(month: date.month, year: @year) %>
+    <% end %>
   </td>
 </tr>

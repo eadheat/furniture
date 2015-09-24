@@ -10,6 +10,8 @@ en:
   notes: "Notes"
   annual: "Annual"
   summary: "Summary"
+  summary_expenses: "Expense Summary"
+  summary_other_expenses: "Other Expense Summary"
   date: "DATE"
   detail: "Detail"
   price: "Price (THB)"

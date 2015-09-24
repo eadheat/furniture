@@ -1,11 +1,12 @@
 class DetailsController < ApplicationController
   def index
-    @expese_year_list = current_user.expenses.map(&:date).map(&:year).uniq
+    my_expenses = params[:other_expense].present? ? current_user.expenses.other_expenses : current_user.expenses.my_expenses
+    @expese_year_list = my_expenses.map(&:date).map(&:year).uniq
     
     @month = for_month(params)
     @year  = for_year(params)
 
-    @paid_for_month = current_user.expenses.where('extract(year from date) = ?', @year)
+    @paid_for_month = my_expenses.where('extract(year from date) = ?', @year)
     @paid_for_month = @paid_for_month.where('extract(month from date) = ?', @month)
     @paid_for_month = @paid_for_month.order("date desc, created_at desc")
 

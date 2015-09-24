@@ -10,6 +10,8 @@ th:
   notes: "สมุดบันทึก"
   annual: "ประจำปี"
   summary: "สรุปยอด"
+  summary_expenses: "สรุปยอดบันทึกประจำวัน"
+  summary_other_expenses: "สรุปยอดค่าใช้จ่ายอื่นๆ"
   date: "วันที่"
   detail: "รายการ"
   price: "ราคา"
