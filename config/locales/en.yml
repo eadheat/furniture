@@ -60,6 +60,7 @@ en:
   average_of_this_month: "Average of this month: "
   delete: "Delete"
   days_in_month: "Days amount you enter of this month: "
+  other_expenses: "My Other Expenses"
 
   activerecord:
     errors:

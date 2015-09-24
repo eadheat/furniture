@@ -1,0 +1,14 @@
+<%= hidden_field_tag "details", @expense_details, id: "expense-details-autocomplete" %>
+<div id="summaries-of-this-month">
+  <div>
+    <span><%= t('total_of_this_month') %></span>
+    <span class="bold" id="total_of_this_month"><%= current_user.total_of_this_month(other_expense: true) %></span>
+  </div>
+</div>
+
+<div class="col-xs-12">
+  <%= render partial: "other_expense" %>
+</div>  
+<div class="digg_pagination">
+  <%= will_paginate @expenses %>
+</div>

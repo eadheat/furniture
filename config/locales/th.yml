@@ -4,7 +4,7 @@ th:
   language: "ภาษา"
   sign_in: "เข้าสู่ระบบ"
   sign_out: "ออกจากระบบ"
-  my_expenses: "รายจ่ายของฉัน"
+  my_expenses: "บันทึกประจำวัน"
   monthly: "ประจำเดือน"
   yearly: "ประจำปี"
   notes: "สมุดบันทึก"
@@ -60,6 +60,7 @@ th:
   average_of_this_month: "เฉลี่ยต่อวันของเดือนนี้: "
   delete: "ลบ"
   days_in_month: "จำนวนวันที่บันทึกในเดือนนี้: "
+  other_expenses: "ค่าใช้จ่ายอื่นๆ"
 
   activerecord:
     errors:

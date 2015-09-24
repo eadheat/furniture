@@ -1,0 +1,42 @@
+<tr>
+  <td>
+    <span id="expense-date" class="expense-text-show"><%= expense.date.strftime("%d.%m.%Y") %></span>
+    <%= 
+      text_field_tag "expense_date", 
+      expense.date.strftime('%d.%m.%Y'),
+      placeholder: t('date'),
+      class: "pay-date expense-value form-control required" 
+    %>
+  </td>
+  <td>
+    <span id="expense-detail" class="expense-text-show"><%= expense.detail %></span>
+    <%= 
+      text_field_tag "expense_detail", 
+      expense.detail, 
+      placeholder: t("detail"),
+      class: "expense-value form-control required" 
+    %>
+  </td>
+  <td>
+    <span id="expense-amount" class="expense-text-show"><%= expense.amount %></span>
+    <%= 
+      text_field_tag "expense_amount", 
+      expense.amount,
+      placeholder: t("amount"),
+      class: "expense-value form-control required" 
+    %>
+  </td>
+  <td class="payment-check-box">
+    <span id="expense-credit" class="expense-text-show">
+      <%= expense.credit ? "<span class='credit'> #{t('credit')}</span>".html_safe : t("cash") %>
+    </span>
+    
+    <div class="expense-value">
+      <%= check_box_tag "expense_credit", nil, expense.credit, class: "expense-value" %>
+      <div class="visible-xs pay_by_credit__visible-xs"><%= t('pay_by_credit') %></div>
+    </div>
+  </td>
+  <td class="edit-action">
+    <%= render partial: "edit_actions", locals:  {expense: expense} %>
+  </td>
+</tr>
