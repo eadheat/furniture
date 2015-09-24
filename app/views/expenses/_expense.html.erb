@@ -4,7 +4,6 @@
       <th><%= t('date') %></th>
       <th><%= t('detail') %></th>
       <th><%= t('price') %></th>
-      <th><%= t('pay_by_credit') %></th>
       <th class="menu-actions" colspan="2"></th>
     </tr>
   </thead>
@@ -31,10 +30,6 @@
           placeholder: t('amount'),
           class: "form-control required" 
         %>
-      </td>
-      <td class="payment-check-box">
-        <%= check_box_tag "expense_credit", nil, false %>
-        <div class="visible-xs white-text pay_by_credit__visible-xs"><%= t('pay_by_credit') %></div>
       </td>
       <td id="insert-expense-action">
         <%= button_tag t('add_new'), id: "insert-expense", class: "btn btn-primary" %>

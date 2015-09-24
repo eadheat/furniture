@@ -26,16 +26,6 @@
       class: "expense-value form-control required" 
     %>
   </td>
-  <td class="payment-check-box">
-    <span id="expense-credit" class="expense-text-show">
-      <%= expense.credit ? "<span class='credit'> #{t('credit')}</span>".html_safe : t("cash") %>
-    </span>
-    
-    <div class="expense-value">
-      <%= check_box_tag "expense_credit", nil, expense.credit, class: "expense-value" %>
-      <div class="visible-xs pay_by_credit__visible-xs"><%= t('pay_by_credit') %></div>
-    </div>
-  </td>
   <td class="edit-action">
     <%= render partial: "edit_actions", locals:  {expense: expense} %>
   </td>

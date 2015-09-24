@@ -17,15 +17,11 @@ class OtherExpensesController < ApplicationController
 
   def create
     @expense = Expense.new(expenses_params)
-    if params[:expense][:credit].present?
-      @expense.credit = true
-    else
-      @expense.credit = false
-    end
     @expense.user = current_user
 
     if @expense.save
-      render template: "/expenses/create_success", layout: false
+      @total_of_this_month = current_user.total_of_this_month(other_expense: true)
+      render "/expenses/create_success", layout: false
     else
       head(:forbidden)
     end
@@ -34,19 +30,12 @@ class OtherExpensesController < ApplicationController
   def update
     expense = current_user.expenses.other_expenses.find(params[:id])
     expense.assign_attributes(expenses_params)
-    if params[:expense][:credit].present?
-      expense.credit = true
-    else
-      expense.credit = false
-    end
 
     if expense.save
       render json: {
         date: expense.date.strftime("%d.%m.%Y"),
         detail: expense.detail,
         amount: expense.amount,
-        credit: expense.credit ? "<span class='credit'>#{t('credit')}</span>" : t("cash"),
-        is_credit: expense.credit,
         total_for_today: 0,
         total_of_this_month: current_user.total_of_this_month(other_expense: true),
         average_of_this_month: 0
@@ -62,9 +51,7 @@ class OtherExpensesController < ApplicationController
       render json: {
         date: expense.date.strftime("%d.%m.%Y"),
         detail: expense.detail,
-        amount: expense.amount,
-        credit: expense.credit ? "<span class='credit'>#{t('credit')}</span>" : t("cash"),
-        is_credit: expense.credit
+        amount: expense.amount
       }
     else
       head(:forbidden)
@@ -75,9 +62,9 @@ class OtherExpensesController < ApplicationController
     current_user.expenses.other_expenses.find(params[:id]).destroy
     render json: {
       success: true, 
-      total_for_today: @current_date_total,
-      total_of_this_month: current_user.total_of_this_month,
-      average_of_this_month: current_user.average_of_this_month
+      total_for_today: 0,
+      total_of_this_month: current_user.total_of_this_month(other_expense: true),
+      average_of_this_month: 0
     }
   end
 

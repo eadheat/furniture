@@ -1,6 +1,6 @@
 <tr 
   money-for-today="<%= @current_date_total %>" 
-  total-of-this-month="<%= current_user.total_of_this_month %>"
+  total-of-this-month="<%= @total_of_this_month %>"
   average-of-this-month="<%= current_user.average_of_this_month %>">
 
   <td>
@@ -28,16 +28,6 @@
       placeholder: t("amount"),
       class: "expense-value form-control required" 
     %>
-  </td>
-  <td class="payment-check-box">
-    <span id="expense-credit" class="expense-text-show">
-      <%= @expense.credit ? "<span class='credit'>#{t('credit')}</span>".html_safe : t("cash") %>
-    </span>
-
-    <span class="expense-value">
-      <%= check_box_tag "expense_credit", nil, @expense.credit, class: "expense-value" %>
-      <div class="visible-xs pay_by_credit__visible-xs"><%= t('pay_by_credit') %></div>
-    </span>
   </td>
   <td class="edit-action">
     <%= render partial: "edit_actions", locals:  {expense: @expense} %>

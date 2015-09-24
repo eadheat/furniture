@@ -18,15 +18,11 @@ class ExpensesController < ApplicationController
 
   def create
     @expense = Expense.new(expenses_params)
-    if params[:expense][:credit].present?
-      @expense.credit = true
-    else
-      @expense.credit = false
-    end
     @expense.user = current_user
 
     if @expense.save
       total_money_for_today
+      @total_of_this_month = current_user.total_of_this_month
       render "create_success", layout: false
     else
       head(:forbidden)
@@ -36,11 +32,6 @@ class ExpensesController < ApplicationController
   def update
     expense = current_user.expenses.my_expenses.find(params[:id])
     expense.assign_attributes(expenses_params)
-    if params[:expense][:credit].present?
-      expense.credit = true
-    else
-      expense.credit = false
-    end
 
     if expense.save
       total_money_for_today
@@ -48,8 +39,6 @@ class ExpensesController < ApplicationController
         date: expense.date.strftime("%d.%m.%Y"),
         detail: expense.detail,
         amount: expense.amount,
-        credit: expense.credit ? "<span class='credit'>#{t('credit')}</span>" : t("cash"),
-        is_credit: expense.credit,
         total_for_today: @current_date_total,
         total_of_this_month: current_user.total_of_this_month,
         average_of_this_month: current_user.average_of_this_month
@@ -66,8 +55,6 @@ class ExpensesController < ApplicationController
         date: expense.date.strftime("%d.%m.%Y"),
         detail: expense.detail,
         amount: expense.amount,
-        credit: expense.credit ? "<span class='credit'>#{t('credit')}</span>" : t("cash"),
-        is_credit: expense.credit
       }
     else
       head(:forbidden)
