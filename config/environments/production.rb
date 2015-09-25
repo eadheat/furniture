@@ -78,7 +78,17 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.notifier_from_field = "do-not-reply@gmail.com"
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.default_url_options = { host: '188.166.252.41' }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               "188.166.252.41",
+    user_name:            'do-not-reply@gmail.com',
+    password:             ENV["EPASSWORD"],
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
+
 end
