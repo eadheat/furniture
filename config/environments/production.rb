@@ -77,7 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.notifier_from_field = "do-not-reply@gmail.com"
+  config.notifier_from_field = "eadheat@gmail.com"
 
   config.action_mailer.default_url_options = { host: '188.166.252.41' }
   config.action_mailer.delivery_method = :smtp
@@ -85,7 +85,7 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               "188.166.252.41",
-    user_name:            'do-not-reply@gmail.com',
+    user_name:            'eadheat@gmail.com',
     password:             ENV["EPASSWORD"],
     authentication:       'plain',
     enable_starttls_auto: true
