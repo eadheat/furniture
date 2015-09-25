@@ -11,18 +11,25 @@
 </div>
 <div class="modal-body">
   <div id="summary-details-of-this-month">
-    <div>
-      <span><%= t('total_of_this_month') %></span>
-      <span class="bold" id="total_of_month"><%= @total %></span>
-    </div>
-    <div>
-      <span><%= t('average_of_this_month') %></span>
-      <span class="bold" id="average_of_month"><%= @average %></span>
-    </div>
-    <div>
-      <span><%= t('days_in_month') %></span>
-      <span class="bold" id="average_of_month"><%= @days_in_month %></span>
-    </div>
+    <% if params[:other_expense].present? && params[:other_expense] == "true" %>
+      <div>
+        <span><%= t('total_of_this_month') %></span>
+        <span class="bold" id="total_of_month"><%= @total %></span>
+      </div>
+    <% else %>
+      <div>
+        <span><%= t('total_of_this_month') %></span>
+        <span class="bold" id="total_of_month"><%= @total %></span>
+      </div>
+      <div>
+        <span><%= t('average_of_this_month') %></span>
+        <span class="bold" id="average_of_month"><%= @average %></span>
+      </div>
+      <div>
+        <span><%= t('days_in_month') %></span>
+        <span class="bold" id="average_of_month"><%= @days_in_month %></span>
+      </div>
+    <% end %>
   </div>
   <div>
     <% if @paid_for_month.present? %>
