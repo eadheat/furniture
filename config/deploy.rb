@@ -75,7 +75,7 @@ namespace :deploy do
   end
 
   task :start do
-    run "cp -r #{release_path}/app/assets/fonts/* #{release_path}/public/assets"
+    run "cp -a #{release_path}/app/assets/fonts/. #{release_path}/public/assets"
   end
 
   before :starting,     :check_revision
