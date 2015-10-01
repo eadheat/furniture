@@ -5,8 +5,9 @@ class Expense < ActiveRecord::Base
   validates :detail, presence: true
   validates :amount, presence: true
 
-  scope :my_expenses, -> { where(other: false) }
-  scope :other_expenses, -> { where(other: true) }
+  scope :my_expenses, -> { where(other: false).where(income: false) }
+  scope :other_expenses, -> { where(other: true).where(income: false) }
+  scope :incomes, -> { where(income: true) }
 
   def today
     self.date.to_date.to_s

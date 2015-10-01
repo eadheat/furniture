@@ -28,6 +28,13 @@ class User < ActiveRecord::Base
     self.name.present? ? self.name : self.email
   end
 
+  def total_income_of_this_month
+    paid_for_month = self.expenses.incomes.where('extract(year from date) = ?', Time.current.year)
+    paid_for_month = paid_for_month.where('extract(month from date) = ?', Time.current.month)
+    
+    return paid_for_month.map(&:amount).sum
+  end
+
   def total_of_this_month(other_expense = nil)
     if other_expense.present?
       paid_for_month = self.expenses.other_expenses.where('extract(year from date) = ?', Time.current.year)

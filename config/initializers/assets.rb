@@ -12,5 +12,5 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( 
   homes.css homes.js expenses.css expenses.js sessions.css sessions.js details.js details.css
   histories.css histories.js summaries.css summaries.js events.js events.css media.css
-  other_expenses.js other_expenses.css
+  other_expenses.js other_expenses.css incomes.js incomes.css
 )

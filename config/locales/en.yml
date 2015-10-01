@@ -64,6 +64,7 @@ en:
   delete: "Delete"
   days_in_month: "Days amount you enter of this month: "
   other_expenses: "My Other Expenses"
+  incomes: "Incomes"
 
   activerecord:
     errors:

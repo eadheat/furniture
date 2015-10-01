@@ -13,6 +13,11 @@ Rails.application.routes.draw do
         get :expense_details
       end
     end
+    resources :incomes do
+      member do 
+        get :expense_details
+      end
+    end
     resources :histories
     resources :details
     resources :summaries

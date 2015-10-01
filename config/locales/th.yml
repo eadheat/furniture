@@ -64,6 +64,7 @@ th:
   delete: "ลบ"
   days_in_month: "จำนวนวันที่บันทึกในเดือนนี้: "
   other_expenses: "ค่าใช้จ่ายอื่นๆ"
+  incomes: "รายรับ"
 
   activerecord:
     errors:
