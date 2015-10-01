@@ -21,3 +21,14 @@ table tr:not(:last-child) {
 .btn-default:hover .btn-default:active {
   background-color: #e6e6e6;
 }
+
+.summaries__box {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 1px dashed #009999;
+
+  h4 {
+    margin-top: 0;
+    color: green;
+  }
+}

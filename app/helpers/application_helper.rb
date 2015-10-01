@@ -1,18 +1,11 @@
 module ApplicationHelper
-  def months
-    [
-      ["Jan", 1],
-      ["Fab", 2],
-      ["Mar", 3],
-      ["Api", 4],
-      ["May", 5],
-      ["Jun", 6],
-      ["July", 7],
-      ["Aug", 8],
-      ["Sep", 9],
-      ["Oct", 10],
-      ["Nov", 11],
-      ["Dec", 12],
-    ]
+  def rest(income=0, total_expense=0)
+    rest = income - total_expense
+    number_to_currency(rest, unit: "")
+    if rest < 0
+      return "<span class='red'>#{number_to_currency(rest, unit: "")}</span>".html_safe
+    else
+      return "<span class='green'>#{number_to_currency(rest, unit: "")}</span>".html_safe
+    end    
   end
 end

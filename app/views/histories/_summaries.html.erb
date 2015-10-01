@@ -1,0 +1,5 @@
+<div class="col-xs-12">
+<% @expenses.each do |month, value| %>
+  <%= render partial: "month_list", locals: {month: month, value: value} %>
+<% end %>
+</div>

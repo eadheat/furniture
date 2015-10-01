@@ -95,6 +95,10 @@ ul#menu-list {
   color: white;
 }
 
+.light-green {
+  color: #009999;
+}
+
 .credit {
   color: $green;
 }
@@ -177,4 +181,13 @@ textarea {
   display: inline-block;
   margin-left: 15px;
   padding: 10px 15px;
+}
+
+#searchbox {
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.red {
+  color: red;
 }

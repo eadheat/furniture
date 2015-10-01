@@ -1,38 +1,5 @@
 <%= render partial: "shared/search_box" %>
-
-<div class="col-sm-12">
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active">
-      <a href="#my_expense_tab" aria-controls="my_expense_tab" role="tab" data-toggle="tab">
-        <%= t('summary_expenses') %>
-      </a>
-    </li>
-    <li role="presentation">
-      <a href="#other_expense_tab" aria-controls="other_expense_tab" role="tab" data-toggle="tab">
-        <%= t('summary_other_expenses') %>
-      </a>
-    </li>
-    <li role="presentation">
-      <a href="#all_expense_tab" aria-controls="all_expense_tab" role="tab" data-toggle="tab">
-        <%= t('all_summary_expenses') %>
-      </a>
-    </li>
-  </ul>
-
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="my_expense_tab">
-      <%= render partial: "expense_tab", locals: {expenses: @my_expenses, total: @my_expenses_total_amount, other: nil} %>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="other_expense_tab">
-      <%= render partial: "expense_tab", locals: {expenses: @other_expenses, total: @other_expenses_total_amount, other: "true"} %>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="all_expense_tab">
-      <%= render partial: "expense_tab", locals: {expenses: @all_expenses, total: @total_amount, other: "all"} %>
-    </div>
-  </div>
-</div>
+<%= render partial: "summaries" %>
 
 <!-- Modal -->
 <div class="modal fade" id="my_summary_details" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

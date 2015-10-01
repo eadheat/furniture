@@ -1,7 +1,7 @@
 class DetailsController < ApplicationController
   def index
     if params[:other_expense].present?
-      my_expenses = params[:other_expense] == "all" ? current_user.expenses : current_user.expenses.other_expenses
+      my_expenses = params[:other_expense] == "income" ? current_user.expenses.incomes : current_user.expenses.other_expenses
     else
       my_expenses = current_user.expenses.my_expenses
     end
