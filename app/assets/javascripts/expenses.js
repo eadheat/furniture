@@ -2,6 +2,7 @@ Expenses = {
   submitExpenseForm: function(event){
     var tr_parent = $(this).parents("tr");
     $(tr_parent).find("input.required").removeClass("error");
+    Expenses.disabledExpenseForm();
     
     var expense_date = $(tr_parent).find("input[name='expense_date']").val();
     var expense_detail = $(tr_parent).find("input[name='expense_detail']").val();
@@ -25,6 +26,8 @@ Expenses = {
         var first_row = $("table#pay-list").find("tr#expense-form");          
         $(result).insertAfter($(first_row));
         $("#expense-form input:not('.pay-date')").val('');
+
+        Expenses.enableExpenseForm();
       },
       error: function(){
         $(tr_parent).find("input.required").filter(function() {
@@ -33,6 +36,7 @@ Expenses = {
           $(this).removeClass("error");
           $(this).dequeue();
         });
+        Expenses.enableExpenseForm();
       },
       data: {
         "expense[date]": expense_date,
@@ -69,6 +73,7 @@ Expenses = {
   editExpense: function(){
     var expense_id = $(this).attr("id"); 
     var tr_parent = $(this).parents("tr");
+    Expenses.disabledExpenseForm();
 
     $(tr_parent).find(".expense-text-show").hide();
     $(tr_parent).find(".expense-value").show();
@@ -77,6 +82,7 @@ Expenses = {
     var expense_id = $(this).attr("id"); 
     var tr_parent = $(this).parents("tr");
     $(tr_parent).find("input.required").removeClass("error");
+    Expenses.enableExpenseForm();
 
     $.ajax({
       beforeSend: function(xhr) {
@@ -132,12 +138,14 @@ Expenses = {
         Expenses.updateExpenseDetails(result, tr_parent);
 
         $(tr_parent).find(".expense-text-show").show();
-        $(tr_parent).find(".expense-value").hide();        
+        $(tr_parent).find(".expense-value").hide();  
+        Expenses.enableExpenseForm();      
       },
       error: function(){
         $(tr_parent).find("input.required").filter(function() {
           return !this.value;
         }).addClass("error");
+        Expenses.enableExpenseForm();
       },
       data: {
         "expense[date]": expense_date,
@@ -148,6 +156,12 @@ Expenses = {
       type: "put",
       url: "/"+locale+"/expenses/"+expense_id
     });
+  },
+  disabledExpenseForm: function(){
+    $("tr#expense-form").find("input, button").attr("disabled", true);
+  },
+  enableExpenseForm: function(){
+    $("tr#expense-form").find("input, button").attr("disabled", false);
   },
   init: function(){
     $(document).on("click", "button#insert-expense", Expenses.submitExpenseForm);
