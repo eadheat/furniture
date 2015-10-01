@@ -35,6 +35,6 @@
         <%= button_tag t('add_new'), id: "insert-expense", class: "btn btn-primary" %>
       </td>
     </tr>
-    <%= render partial: "other_expense_list", collection: @expenses, as: :expense %>
+    <%= render partial: "/expense_shared/expense_list", collection: @expenses, as: :expense %>
   </tbody>
 </table>
