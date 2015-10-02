@@ -20,7 +20,7 @@
 
             <li><%= link_to t("my_expenses"), expenses_path if user_signed_in? %></li>
             <li><%= link_to t("other_expenses"), other_expenses_path if user_signed_in? %></li>
-            <li><%= link_to t("incomes"), incomes_path if user_signed_in? %></li>
+            <!-- <li><%#= link_to t("incomes"), incomes_path if user_signed_in? %></li> -->
 
             <li><%= link_to t("summary"), histories_path if user_signed_in? %></li>
             

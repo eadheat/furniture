@@ -1,4 +1,4 @@
-<div class="col-sm-6 summaries__box">
+<div class="summaries__box">
   <div class="row form-group">
     <div class="col-xs-12">
       <h4><%= t("month_names.month_#{month}") %></h4>
@@ -29,27 +29,27 @@
     </div>
   </div>
 
-  <div class="row form-group">
+  <div class="row">
     <div class="col-xs-5"><label>รายจ่ายรวม</label></div>
     <div class="col-xs-3"><%= number_to_currency(value[:total], unit: "") %></div>
     <div class="col-xs-4"></div>
   </div>
 
-  <div class="row form-group">
+  <!-- <div class="row form-group">
     <div class="col-xs-5"><label>รายรับรวม</label></div>
-    <div class="col-xs-3"><%= number_to_currency(value[:income_total], unit: "") %></div>
+    <div class="col-xs-3"><%#= number_to_currency(value[:income_total], unit: "") %></div>
     <div class="col-xs-4">
-      <%= link_to t("details"), 
+      <%#= link_to t("details"), 
         details_path(month: month, year: @year, other_expense: "income"),
         "data-toggle": "modal",
         "data-target": "#my_summary_details"
       %>
     </div>
-  </div>
+  </div> -->
 
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-xs-5"><label>คงเหลือ</label></div>
-    <div class="col-xs-3"><%= rest(value[:income_total], value[:total]) %></div>
+    <div class="col-xs-3"><%#= rest(value[:income_total], value[:total]) %></div>
     <div class="col-xs-4"></div>
-  </div>
+  </div> -->
 </div>
