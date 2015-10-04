@@ -34,6 +34,14 @@ Rails.application.routes.draw do
     end
 
   end
+
+  namespace :api, :format => :json do
+    namespace :v1 do
+      resources :sessions
+      resources :expenses
+    end
+  end
+
   root to: "expenses#index"
   
 end

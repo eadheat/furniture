@@ -26,6 +26,7 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'mailcatcher'
 gem 'activeadmin', github: 'activeadmin'
 gem 'figaro'
+gem 'rack-cors', :require => 'rack/cors'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
