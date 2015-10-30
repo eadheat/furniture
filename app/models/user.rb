@@ -65,12 +65,25 @@ class User < ActiveRecord::Base
     paid_for_month = paid_for_month.where('extract(month from date) = ?', Time.current.month)
     paid_for_month = paid_for_month.order("date desc, created_at desc") 
 
-    days_in_month = User.get_days_in_month(paid_for_month)
+    days_in_month = self.get_days_in_month
     total = paid_for_month.map(&:amount).sum
     return User.get_average(days_in_month, total)
   end
 
-  def self.get_days_in_month(paid_for_month)
+  def total_average_of_this_month
+    paid_for_month = self.expenses.where('extract(year from date) = ?', Time.current.year)
+    paid_for_month = paid_for_month.where('extract(month from date) = ?', Time.current.month)
+    paid_for_month = paid_for_month.order("date desc, created_at desc") 
+
+    days_in_month = self.get_days_in_month
+    total = paid_for_month.map(&:amount).sum
+    return User.get_average(days_in_month, total)
+  end
+
+  def get_days_in_month
+    paid_for_month = self.expenses.where('extract(year from date) = ?', Time.current.year)
+    paid_for_month = paid_for_month.where('extract(month from date) = ?', Time.current.month)
+
     paid_for_month.map(&:date).map(&:to_date).uniq.size
   end
 
