@@ -35,6 +35,7 @@ module Api::V1
     def create
       expense = Expense.new(expense_params)
       expense.user = current_user
+      expense.date = Time.zone.parse(params[:expense][:date]).to_date
 
       (params[:expense_type] == "other_expense") ? expense.other = true : expense.other = false
       
@@ -51,7 +52,9 @@ module Api::V1
 
     def update
       expense = current_user.expenses.find(params[:id])
-      expense.update_attributes(expense_params)
+      expense.assign_attributes(expense_params)
+      expense.update_attribute(:date, Time.zone.parse(params[:expense][:date]).to_date)
+
       expense.reload
       render json: {
         status: "OK",
